@@ -11,21 +11,39 @@ namespace WindowsFormsApp1
 {
     internal class User
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string TaxCode { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
+        public string nome { get; set; }
+        public string cognome { get; set; }
+        public string codiceFiscale { get; set; }
+        public string data_nascita { get; set; }
+        public string sezione { get; set; }
+        public string data_pag { get; set; }
+        public string tipo { get; set; }
+        public string numero { get; set; }
+        public string indirizzo { get; set; }
+        public string provincia { get; set; }
+        public string comune { get; set; }
+        public string cap { get; set; }
+        public string comune_nascita { get; set; }
+        public string provincia_nascita { get; set; }
+        public string numero_porto_darmi { get; set; }
 
-        public void SetUser(string name, string surname, string taxCode, string email, string phone, string address)
+        public void SetUser(string nome, string cognome, string codiceFiscale, string data_nascita, string sezione, string data_pag, string tipo, string numero, string indirizzo, string provincia, string comune, string cap, string comune_nascita, string provincia_nascita, string numero_porto_darmi)
         {
-            this.Name = name;
-            this.Surname = surname;
-            this.TaxCode = taxCode;
-            this.Email = email;
-            this.Phone = phone;
-            this.Address = address;
+            this.nome = nome;
+            this.cognome = cognome;
+            this.codiceFiscale = codiceFiscale;
+            this.data_nascita = data_nascita;
+            this.sezione = sezione;
+            this.data_pag = data_pag;
+            this.tipo = tipo;
+            this.numero = numero;
+            this.indirizzo = indirizzo;
+            this.provincia = provincia;
+            this.comune = comune;
+            this.cap = cap;
+            this.comune_nascita = comune_nascita;
+            this.provincia_nascita = provincia_nascita;
+            this.numero_porto_darmi = numero_porto_darmi;
         }
     }
 }

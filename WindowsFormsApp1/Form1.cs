@@ -44,13 +44,13 @@ namespace WindowsFormsApp1
 
                         if (sourcePage.Number == 1)
                         {
-                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["Name"].Value.ToString(), 10, 10, 700, helvetica);
+                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["nome"].Value.ToString(), 10, 10, 700, helvetica);
 
-                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["Surname"].Value.ToString(), 10, 10, 720, helvetica);
+                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["cognome"].Value.ToString(), 10, 10, 720, helvetica);
 
-                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["TaxCode"].Value.ToString().ToUpper(), 10, 10, 740, helvetica);
+                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["codiceFiscale"].Value.ToString().ToUpper(), 10, 10, 740, helvetica);
 
-                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["Phone"].Value.ToString(), 10, 10, 760, helvetica);
+                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["data_nascita"].Value.ToString(), 10, 10, 760, helvetica);
                         }
                     }
                 }
@@ -66,11 +66,21 @@ namespace WindowsFormsApp1
             users = sql.GetTempUser();
 
             User newUser = new User();
-            newUser.Name = name_tb.Text;
-            newUser.Surname = surname_tb.Text;
-            newUser.TaxCode = taxCode_tb.Text;
-            newUser.Phone = phone_tb.Text;
-
+            newUser.nome = tbNome.Text;
+            newUser.cognome = tbCognome.Text;
+            newUser.codiceFiscale = tbCodiceFiscale.Text;
+            newUser.data_nascita = tbDataDiNascita.Text;
+            newUser.sezione = tbSezione.Text;
+            newUser.data_pag = tbDataPag.Text;
+            newUser.tipo = tbTipo.Text;
+            newUser.numero = tbNumero.Text;
+            newUser.indirizzo = tbIndirizzoResistenza.Text;
+            newUser.provincia = tbIndirizzoResistenza.Text;
+            newUser.comune = tbComuneResidenza.Text;
+            newUser.cap = tbCap.Text;
+            newUser.comune_nascita = tbComuneNascita.Text;
+            newUser.provincia_nascita = tbProvinciaNascita.Text;
+            newUser.numero_porto_darmi = tbNumeroPortoArmi.Text;
             users.Add(newUser);
 
             dataGridView1.DataSource = users;
@@ -80,8 +90,6 @@ namespace WindowsFormsApp1
         {
             dataGridView1.DataSource = sql.GetTempUser();
 
-            dataGridView1.Columns["Email"].Visible = false;
-            dataGridView1.Columns["Address"].Visible = false;
         }
     }
 }

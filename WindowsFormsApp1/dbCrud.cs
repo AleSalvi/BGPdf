@@ -58,7 +58,7 @@ namespace WindowsFormsApp1
             return datatable;
         }
 
-        private const string GetUserByTaxCodeQuery = "SELECT * FROM Users WHERE TaxCode = @TaxCOde";
+        private const string GetUserByTaxCodeQuery = "SELECT * FROM Users WHERE codiceFiscale = @codiceFiscale";
         public bool GetUserByTaxCode(User User)
         {
             int rows;
@@ -67,7 +67,7 @@ namespace WindowsFormsApp1
                 con.Open();
                 using (SqlCommand com = new SqlCommand(GetUserByTaxCodeQuery, con))
                 {
-                    com.Parameters.AddWithValue("@TaxCode", User.TaxCode);
+                    com.Parameters.AddWithValue("@codiceFiscale", User.codiceFiscale);
                     rows = com.ExecuteNonQuery();
                 }
                 con.Close();
@@ -75,13 +75,13 @@ namespace WindowsFormsApp1
             return (rows > 0) ? true : false;
         }
 
-        private const string InsertQuery = "IF (SELECT COUNT (*) FROM Users WHERE TaxCode = @TaxCode) > 1 " +
+        private const string InsertQuery = "IF (SELECT COUNT (*) FROM Users WHERE TaxCode = @codiceFiscale) > 1 " +
                                                 "BEGIN " +
                                                     "RAISERROR('Utente già registrato!', 16, 1) " +
                                                 "END " +
                                             "ELSE" +
                                                 "BEGIN " +
-                                                    "INSERT INTO USERS(Name, Surname, TaxCode, Email, Phone, Address) VALUES (@Name, @Surname, @TaxCode, @Email, @Phone, @Address)" +
+                                                    "INSERT INTO USERS(nome, cognome, codiceFiscale, data_nascita, sezione, data_pag, tipo, numero, indirizzo, provincia, comune, cap, comune_nascita, provincia_nascita, numero_porto_darmi) VALUES (@nome, @cognome, @codiceFiscale, @data_nascita, @sezione, @data_pag, @tipo, @numero, @indirizzo, @provincia, @comune, @cap, @comune_nascita, @provincia_nascita, @numero_porto_darmi)" +
                                                 "END ";
         public bool InsertUser(User User)
         {
@@ -91,13 +91,21 @@ namespace WindowsFormsApp1
                 con.Open();
                 using (SqlCommand com = new SqlCommand(InsertQuery, con))
                 {
-                    com.Parameters.AddWithValue("@Name", User.Name);
-                    com.Parameters.AddWithValue("@Surname", User.Surname);
-                    com.Parameters.AddWithValue("@TaxCode", User.TaxCode);
-                    com.Parameters.AddWithValue("@Email", User.Email);
-                    com.Parameters.AddWithValue("@Phone", User.Phone);
-                    com.Parameters.AddWithValue("@Address", User.Address);
-                    rows = com.ExecuteNonQuery();
+                    com.Parameters.AddWithValue("@nome", User.nome);
+                    com.Parameters.AddWithValue("@cognome", User.cognome);
+                    com.Parameters.AddWithValue("@codiceFiscale", User.codiceFiscale);
+                    com.Parameters.AddWithValue("@data_nascita", User.data_nascita);
+                    com.Parameters.AddWithValue("@sezione", User.sezione);
+                    com.Parameters.AddWithValue("@data_pag", User.data_pag);
+                    com.Parameters.AddWithValue("@tipo", User.tipo);
+                    com.Parameters.AddWithValue("@numero", User.numero);
+                    com.Parameters.AddWithValue("@indirizzo", User.indirizzo);
+                    com.Parameters.AddWithValue("@provincia", User.provincia);
+                    com.Parameters.AddWithValue("@comune", User.comune);
+                    com.Parameters.AddWithValue("@cap", User.cap);
+                    com.Parameters.AddWithValue("@comune_nascita", User.comune_nascita);
+                    com.Parameters.AddWithValue("@provincia_nascita", User.provincia_nascita);
+                    com.Parameters.AddWithValue("@numero_porto_darmi", User.numero_porto_darmi); rows = com.ExecuteNonQuery();
                 }
                 con.Close();
             }
@@ -113,7 +121,7 @@ namespace WindowsFormsApp1
                 con.Open();
                 using (SqlCommand com = new SqlCommand(DeleteQuery, con))
                 {
-                    com.Parameters.AddWithValue("@TaxCode", User.TaxCode);
+                    com.Parameters.AddWithValue("@TaxCode", User.codiceFiscale);
                     rows = com.ExecuteNonQuery();
                 }
                 con.Close();
@@ -125,33 +133,107 @@ namespace WindowsFormsApp1
         {
             List<User> users = new List<User>();
 
-            User user1 = new User();
-            user1.Phone = "3227078322";
-            user1.TaxCode = "MSTDDL03T19H910L";
-            user1.Name = "Davide";
-            user1.Surname = "Musitelli";
+            User user1 = new User
+            {
+                nome = "Nome1",
+                cognome = "Cognome1",
+                codiceFiscale = "CF1",
+                data_nascita = "01/01/1990",
+                sezione = "A",
+                data_pag = "01/10/2023",
+                tipo = "Standard",
+                numero = "12345",
+                indirizzo = "Via Roma 1",
+                provincia = "MI",
+                comune = "Milano",
+                cap = "20100",
+                comune_nascita = "Napoli",
+                provincia_nascita = "NA",
+                numero_porto_darmi = "ABCDE12345"
+            };
+
+            User user2 = new User
+            {
+                nome = "Nome2",
+                cognome = "Cognome2",
+                codiceFiscale = "CF2",
+                data_nascita = "02/02/1991",
+                sezione = "B",
+                data_pag = "02/10/2023",
+                tipo = "Premium",
+                numero = "67890",
+                indirizzo = "Via Roma 2",
+                provincia = "RM",
+                comune = "Roma",
+                cap = "00100",
+                comune_nascita = "Milano",
+                provincia_nascita = "MI",
+                numero_porto_darmi = "FGHIJ67890"
+            };
+
+            User user3 = new User
+            {
+                nome = "Nome3",
+                cognome = "Cognome3",
+                codiceFiscale = "CF3",
+                data_nascita = "03/03/1992",
+                sezione = "C",
+                data_pag = "03/10/2023",
+                tipo = "Premium",
+                numero = "13579",
+                indirizzo = "Via Roma 3",
+                provincia = "TO",
+                comune = "Torino",
+                cap = "10100",
+                comune_nascita = "Genova",
+                provincia_nascita = "GE",
+                numero_porto_darmi = "KLMNO13579"
+            };
+
+            User user4 = new User
+            {
+                nome = "Nome4",
+                cognome = "Cognome4",
+                codiceFiscale = "CF4",
+                data_nascita = "04/04/1993",
+                sezione = "D",
+                data_pag = "04/10/2023",
+                tipo = "Standard",
+                numero = "24680",
+                indirizzo = "Via Roma 4",
+                provincia = "NA",
+                comune = "Napoli",
+                cap = "80100",
+                comune_nascita = "Palermo",
+                provincia_nascita = "PA",
+                numero_porto_darmi = "PQRST24680"
+            };
+
+            User user5 = new User
+            {
+                nome = "Nome5",
+                cognome = "Cognome5",
+                codiceFiscale = "CF5",
+                data_nascita = "05/05/1994",
+                sezione = "E",
+                data_pag = "05/10/2023",
+                tipo = "Standard",
+                numero = "35791",
+                indirizzo = "Via Roma 5",
+                provincia = "FI",
+                comune = "Firenze",
+                cap = "50100",
+                comune_nascita = "Bologna",
+                provincia_nascita = "BO",
+                numero_porto_darmi = "UVWXY35791"
+            };
+
             users.Add(user1);
-
-            User user2 = new User();
-            user2.Phone = "33945687991";
-            user2.TaxCode = "CMPVNT90S14G856M";
-            user2.Name = "Valentino";
-            user2.Surname = "Campana";
             users.Add(user2);
-
-            User user3 = new User();
-            user3.Phone = "3277078951";
-            user3.TaxCode = "RSSLC94D13F890M";
-            user3.Name = "Luca";
-            user3.Surname = "Rossi";
             users.Add(user3);
-
-            User user4 = new User();
-            user4.Phone = "3897448772";
-            user4.TaxCode = "GSPGD98D82h271O";
-            user4.Name = "Giandomenico";
-            user4.Surname = "Gaspare";
             users.Add(user4);
+            users.Add(user5);
+
 
             return users;
         }
