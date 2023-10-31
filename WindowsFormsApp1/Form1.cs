@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
                                     pdfManagment.WriteLineOnPdf(ref resultPage, (x*20).ToString() + "," + (y*10).ToString(), 5, x*20, y*10, helvetica);
                                 }
                             }
-                            //ciao
+
                             //pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["nome"].Value.ToString(), 10, 10, 700, helvetica);
 
                             //pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["cognome"].Value.ToString(), 10, 10, 720, helvetica);
