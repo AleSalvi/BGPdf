@@ -44,13 +44,21 @@ namespace WindowsFormsApp1
 
                         if (sourcePage.Number == 1)
                         {
-                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["nome"].Value.ToString(), 10, 10, 700, helvetica);
+                            for (int x = 0; x < 100; x++)
+                            {
+                                for (int y = 0; y < 100; y++)
+                                {
+                                    pdfManagment.WriteLineOnPdf(ref resultPage, (x*20).ToString() + "," + (y*10).ToString(), 5, x*20, y*10, helvetica);
+                                }
+                            }
 
-                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["cognome"].Value.ToString(), 10, 10, 720, helvetica);
+                            //pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["nome"].Value.ToString(), 10, 10, 700, helvetica);
 
-                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["codiceFiscale"].Value.ToString().ToUpper(), 10, 10, 740, helvetica);
+                            //pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["cognome"].Value.ToString(), 10, 10, 720, helvetica);
 
-                            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["data_nascita"].Value.ToString(), 10, 10, 760, helvetica);
+                            //pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["codiceFiscale"].Value.ToString().ToUpper(), 10, 10, 740, helvetica);
+
+                            //pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["data_nascita"].Value.ToString(), 10, 10, 760, helvetica);
                         }
                     }
                 }
