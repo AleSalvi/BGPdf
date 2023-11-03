@@ -44,23 +44,41 @@ namespace WindowsFormsApp1
 
                         if (sourcePage.Number == 1)
                         {
-                            for (int x = 0; x < 100; x++)
-                            {
-                                for (int y = 0; y < 100; y++)
-                                {
-                                    pdfManagment.WriteLineOnPdf(ref resultPage, (x*20).ToString() + "," + (y*10).ToString(), 5, x*20, y*10, helvetica);
-                                }
-                            }
+                            //for (int x = 0; x < 100; x++)
+                            //{
+                            //    for (int y = 0; y < 150; y++)
+                            //    {
+                            //        if ((x * 10) % 50 == 0 && (y * 5) % 50 == 0)
+                            //        {
+                            //            pdfManagment.WriteLineOnPdf(ref resultPage, (x * 10).ToString() + "," + (y * 5).ToString(), 5, x * 10, y * 5, helvetica);
+                            //        }
+                            //        else
+                            //        {
+                            //            pdfManagment.WriteLineOnPdf(ref resultPage, ".", 5, x * 10, y * 5, helvetica);
+                            //        }
+                            //    }
+                            //}
 
                             //dsafsdds
+                            for (int x = 0; x < 2; x++)
+                            {
+                                int doppio = 0;
+                                if (x == 1)
+                                {
+                                    doppio = 275;
+                                }
+                                pdfManagment.WriteLineOnPdf(ref resultPage, "PROVA", 10, 30, 455 - doppio, helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, "PROVA", 10, 30, 440 - doppio, helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, "PROVA", 10, 690, 450 - doppio, helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, "PROVA", 10, 640, 425 - doppio, helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, "PROVA", 10, 640, 405 - doppio, helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, "PROVA", 10, 640, 380 - doppio, helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, "PROVA", 10, 640, 360 - doppio, helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, "PROVA", 10, 900, 380 - doppio, helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, "PROVA", 10, 865, 360 - doppio, helvetica);
 
-                            //pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["nome"].Value.ToString(), 10, 10, 700, helvetica);
+                            }
 
-                            //pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["cognome"].Value.ToString(), 10, 10, 720, helvetica);
-
-                            //pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["codiceFiscale"].Value.ToString().ToUpper(), 10, 10, 740, helvetica);
-
-                            //pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["data_nascita"].Value.ToString(), 10, 10, 760, helvetica);
                         }
                     }
                 }
