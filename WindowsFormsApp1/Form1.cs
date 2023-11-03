@@ -22,6 +22,10 @@ namespace WindowsFormsApp1
             InitializeComponent();
             //sql.OpenSqlConnection();
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = sql.GetTempUser();
+        }
 
         private void btnCreatePdf_Click(object sender, EventArgs e)
         {
@@ -86,10 +90,9 @@ namespace WindowsFormsApp1
             File.WriteAllBytes(pdfResultPath, builder.Build());
 
             MessageBox.Show("File creato!");
-            //this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void addUser()
         {
             users = sql.GetTempUser();
 
@@ -114,10 +117,38 @@ namespace WindowsFormsApp1
             dataGridView1.DataSource = users;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void addUser_btn_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = sql.GetTempUser();
+            this.addUser();
+        }
 
+        private void editUser_btn_Click(object sender, EventArgs e)
+        {
+            this.addUser_btn.Visible = false;
+            this.saveUser_btn.Visible = true;
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                tbNome.Text = row.Cells["nome"].Value.ToString();
+                tbCognome.Text = row.Cells["cognome"].Value.ToString();
+                tbCodiceFiscale.Text = row.Cells["codiceFiscale"].Value.ToString();
+                tbDataDiNascita.Text = row.Cells["data_nascita"].Value.ToString();
+                tbSezione.Text = row.Cells["sezione"].Value.ToString();
+                tbDataPag.Text = row.Cells["data_pag"].Value.ToString();
+                tbTipo.Text = row.Cells["tipo"].Value.ToString();
+                tbNumero.Text = row.Cells["numero"].Value.ToString();
+                tbProvincia.Text = row.Cells["provincia"].Value.ToString();
+                tbIndirizzoResistenza.Text = row.Cells["indirizzo"].Value.ToString();
+                tbComuneResidenza.Text = row.Cells["comune"].Value.ToString();
+                tbCap.Text = row.Cells["cap"].Value.ToString();
+                tbComuneNascita.Text = row.Cells["comune_nascita"].Value.ToString();
+                tbProvinciaNascita.Text = row.Cells["provincia_nascita"].Value.ToString();
+                tbNumeroPortoArmi.Text = row.Cells["numero_porto_darmi"].Value.ToString();
+            }
+        }
+
+        private void saveUser_btn_Click(object sender, EventArgs e)
+        {
+            this.addUser();
         }
     }
 }
