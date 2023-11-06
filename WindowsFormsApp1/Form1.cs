@@ -143,12 +143,30 @@ namespace WindowsFormsApp1
                 tbComuneNascita.Text = row.Cells["comune_nascita"].Value.ToString();
                 tbProvinciaNascita.Text = row.Cells["provincia_nascita"].Value.ToString();
                 tbNumeroPortoArmi.Text = row.Cells["numero_porto_darmi"].Value.ToString();
+
             }
         }
 
         private void saveUser_btn_Click(object sender, EventArgs e)
         {
-            this.addUser();
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                row.Cells["nome"].Value = tbNome.Text;
+                row.Cells["cognome"].Value = tbCognome.Text;
+                row.Cells["codiceFiscale"].Value = tbCodiceFiscale.Text;
+                row.Cells["data_nascita"].Value = tbDataDiNascita.Text;
+                row.Cells["sezione"].Value = tbSezione.Text;
+                row.Cells["data_pag"].Value = tbDataPag.Text;
+                row.Cells["tipo"].Value = tbTipo.Text;
+                row.Cells["numero"].Value = tbNumero.Text;
+                row.Cells["provincia"].Value = tbProvincia.Text;
+                row.Cells["indirizzo"].Value = tbIndirizzoResistenza.Text;
+                row.Cells["comune"].Value = tbComuneResidenza.Text;
+                row.Cells["cap"].Value = tbCap.Text;
+                row.Cells["comune_nascita"].Value = tbComuneNascita.Text;
+                row.Cells["provincia_nascita"].Value = tbProvinciaNascita.Text;
+                row.Cells["numero_porto_darmi"].Value = tbNumeroPortoArmi.Text;
+            }
         }
     }
 }
