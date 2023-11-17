@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         pdfManagment pdfManagment = new pdfManagment();
         List<User> users;
         string pdfSourcePath = "pdf\\source\\sourcePDF.pdf";
+        bool annulla = false;
         string pdfResultPath;
 
         public Form1()
@@ -91,7 +92,48 @@ namespace WindowsFormsApp1
 
             MessageBox.Show("File creato!");
         }
-
+        public void mostraFiltri()
+        {
+            tbNomeF.Visible = true;
+            tbCognomeF.Visible = true;
+            tbCodiceFiscaleF.Visible = true;
+            tbDataDiNascitaF.Visible = true;
+            tbDataRilascioPortoArmiF.Visible = true;
+            tbNumeroPortoArmiF.Visible = true;
+            tbCapNascitaF.Visible = true;
+            tbComuneNascitaF.Visible = true;
+            tbProvinciaNascitaF.Visible = true;
+            tbIndirizzoResistenzaF.Visible = true;
+            tbCapResistenzaF.Visible = true;
+            tbComuneResidenzaF.Visible = true;
+            tbProvinciaResistenzaF.Visible = true;
+            tbSezioneF.Visible = true;
+            tbProvinciaF.Visible = true;
+            tbDataPagamentoF.Visible = true;
+            tbNumeroF.Visible = true;
+            tbTipoF.Visible = true;
+        }
+        public void nascondiFiltri()
+        {
+            tbNomeF.Visible = false;
+            tbCognomeF.Visible = false;
+            tbCodiceFiscaleF.Visible = false;
+            tbDataDiNascitaF.Visible = false;
+            tbDataRilascioPortoArmiF.Visible = false;
+            tbNumeroPortoArmiF.Visible = false;
+            tbCapNascitaF.Visible = false;
+            tbComuneNascitaF.Visible = false;
+            tbProvinciaNascitaF.Visible = false;
+            tbIndirizzoResistenzaF.Visible = false;
+            tbCapResistenzaF.Visible = false;
+            tbComuneResidenzaF.Visible = false;
+            tbProvinciaResistenzaF.Visible = false;
+            tbSezioneF.Visible = false;
+            tbProvinciaF.Visible = false;
+            tbDataPagamentoF.Visible = false;
+            tbNumeroF.Visible = false;
+            tbTipoF.Visible = false;
+        }
         public void addUser()
         {
             users = sql.GetTempUser();
@@ -99,74 +141,144 @@ namespace WindowsFormsApp1
             User newUser = new User();
             newUser.nome = tbNome.Text;
             newUser.cognome = tbCognome.Text;
-            newUser.codiceFiscale = tbCodiceFiscale.Text;
+            newUser.codice_fiscale = tbCodiceFiscale.Text;
             newUser.data_nascita = tbDataDiNascita.Text;
-            newUser.sezione = tbSezione.Text;
-            newUser.data_pag = tbDataPag.Text;
-            newUser.tipo = tbTipo.Text;
-            newUser.numero = tbNumero.Text;
-            newUser.indirizzo = tbIndirizzoResistenza.Text;
-            newUser.provincia = tbIndirizzoResistenza.Text;
-            newUser.comune = tbComuneResidenza.Text;
-            newUser.cap = tbCap.Text;
+            newUser.data_rilascio_porto_armi = tbDataRilascioPortoArmi.Text;
+            newUser.numero_porto_armi = tbNumeroPortoArmi.Text;
+            newUser.cap_nascita = tbCapNascita.Text;
             newUser.comune_nascita = tbComuneNascita.Text;
             newUser.provincia_nascita = tbProvinciaNascita.Text;
-            newUser.numero_porto_darmi = tbNumeroPortoArmi.Text;
+            newUser.indirizzo_residenza = tbIndirizzoResistenza.Text;
+            newUser.cap_residenza = tbCapResistenza.Text;
+            newUser.comune_residenza = tbComuneResidenza.Text;
+            newUser.provincia_residenza = tbProvinciaResistenza.Text;
+            newUser.sezione = tbSezione.Text;
+            newUser.provincia = tbProvincia.Text;
+            newUser.data_pagamento = tbDataPagamento.Text;
+            newUser.numero = tbNumero.Text;
+            newUser.tipo = tbTipo.Text;
             users.Add(newUser);
 
             dataGridView1.DataSource = users;
         }
-
-        private void addUser_btn_Click(object sender, EventArgs e)
-        {
-            this.addUser();
-        }
-
-        private void editUser_btn_Click(object sender, EventArgs e)
-        {
-            this.addUser_btn.Visible = false;
-            this.saveUser_btn.Visible = true;
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-            {
-                tbNome.Text = row.Cells["nome"].Value.ToString();
-                tbCognome.Text = row.Cells["cognome"].Value.ToString();
-                tbCodiceFiscale.Text = row.Cells["codiceFiscale"].Value.ToString();
-                tbDataDiNascita.Text = row.Cells["data_nascita"].Value.ToString();
-                tbSezione.Text = row.Cells["sezione"].Value.ToString();
-                tbDataPag.Text = row.Cells["data_pag"].Value.ToString();
-                tbTipo.Text = row.Cells["tipo"].Value.ToString();
-                tbNumero.Text = row.Cells["numero"].Value.ToString();
-                tbProvincia.Text = row.Cells["provincia"].Value.ToString();
-                tbIndirizzoResistenza.Text = row.Cells["indirizzo"].Value.ToString();
-                tbComuneResidenza.Text = row.Cells["comune"].Value.ToString();
-                tbCap.Text = row.Cells["cap"].Value.ToString();
-                tbComuneNascita.Text = row.Cells["comune_nascita"].Value.ToString();
-                tbProvinciaNascita.Text = row.Cells["provincia_nascita"].Value.ToString();
-                tbNumeroPortoArmi.Text = row.Cells["numero_porto_darmi"].Value.ToString();
-
-            }
-        }
-
-        private void saveUser_btn_Click(object sender, EventArgs e)
+        public void editUser()
         {
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 row.Cells["nome"].Value = tbNome.Text;
                 row.Cells["cognome"].Value = tbCognome.Text;
-                row.Cells["codiceFiscale"].Value = tbCodiceFiscale.Text;
+                row.Cells["codice_fiscale"].Value = tbCodiceFiscale.Text;
                 row.Cells["data_nascita"].Value = tbDataDiNascita.Text;
-                row.Cells["sezione"].Value = tbSezione.Text;
-                row.Cells["data_pag"].Value = tbDataPag.Text;
-                row.Cells["tipo"].Value = tbTipo.Text;
-                row.Cells["numero"].Value = tbNumero.Text;
-                row.Cells["provincia"].Value = tbProvincia.Text;
-                row.Cells["indirizzo"].Value = tbIndirizzoResistenza.Text;
-                row.Cells["comune"].Value = tbComuneResidenza.Text;
-                row.Cells["cap"].Value = tbCap.Text;
+                row.Cells["data_rilascio_porto_armi"].Value = tbDataRilascioPortoArmi.Text;
+                row.Cells["numero_porto_armi"].Value = tbNumeroPortoArmi.Text;
+                row.Cells["cap_nascita"].Value = tbCapNascita.Text;
                 row.Cells["comune_nascita"].Value = tbComuneNascita.Text;
                 row.Cells["provincia_nascita"].Value = tbProvinciaNascita.Text;
-                row.Cells["numero_porto_darmi"].Value = tbNumeroPortoArmi.Text;
+                row.Cells["indirizzo_residenza"].Value = tbIndirizzoResistenza.Text;
+                row.Cells["cap_residenza"].Value = tbCapResistenza.Text;
+                row.Cells["comune_residenza"].Value = tbComuneResidenza.Text;
+                row.Cells["provincia_residenza"].Value = tbProvinciaResistenza.Text;
+                row.Cells["sezione"].Value = tbSezione.Text;
+                row.Cells["provincia"].Value = tbProvincia.Text;
+                row.Cells["data_pagamento"].Value = tbDataPagamento.Text;
+                row.Cells["numero"].Value = tbNumero.Text;
+                row.Cells["tipo"].Value = tbTipo.Text;
             }
+        }
+
+        private void addUser_btn_Click(object sender, EventArgs e)
+        {
+
+            this.label10.Text = "Nuovo utente";
+
+            this.nascondiFiltri();
+            
+            this.addUser_btn.Visible = false;
+            this.editUser_btn.Visible = false;
+            this.saveUser_btn.Visible = true;
+            this.annullla_btn.Visible = true;
+        }
+
+        private void editUser_btn_Click(object sender, EventArgs e)
+        {
+
+            this.label10.Text = "Modifica utente";
+
+            this.nascondiFiltri();
+            
+            this.addUser_btn.Visible = false;
+            this.saveUser_btn.Visible = true;
+            this.annullla_btn.Visible = true;
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                tbNome.Text = row.Cells["nome"].Value.ToString();
+                tbCognome.Text = row.Cells["cognome"].Value.ToString();
+                tbCodiceFiscale.Text = row.Cells["codice_fiscale"].Value.ToString();
+                tbDataDiNascita.Text = row.Cells["data_nascita"].Value.ToString();
+                tbDataRilascioPortoArmi.Text = row.Cells["data_rilascio_porto_armi"].Value.ToString();
+                tbNumeroPortoArmi.Text = row.Cells["numero_porto_armi"].Value.ToString();
+                tbCapNascita.Text = row.Cells["cap_nascita"].Value.ToString();
+                tbComuneNascita.Text = row.Cells["comune_nascita"].Value.ToString();
+                tbProvinciaNascita.Text = row.Cells["provincia_nascita"].Value.ToString();
+                tbIndirizzoResistenza.Text = row.Cells["indirizzo_residenza"].Value.ToString();
+                tbCapResistenza.Text = row.Cells["cap_residenza"].Value.ToString();
+                tbComuneResidenza.Text = row.Cells["comune_residenza"].Value.ToString();
+                tbProvinciaResistenza.Text = row.Cells["provincia_residenza"].Value.ToString();
+                tbSezione.Text = row.Cells["sezione"].Value.ToString();
+                tbProvincia.Text = row.Cells["provincia"].Value.ToString();
+                tbDataPagamento.Text = row.Cells["data_pagamento"].Value.ToString();
+                tbNumero.Text = row.Cells["numero"].Value.ToString();
+                tbTipo.Text = row.Cells["tipo"].Value.ToString();
+            }
+        }
+
+        private void saveUser_btn_Click(object sender, EventArgs e)
+        {
+            if (annulla == false)
+            {
+                if (this.editUser_btn.Visible == true)
+                {
+                    editUser();
+                }
+                else
+                {
+                    addUser();
+                }
+            }
+            tbNome.Text = "";
+            tbCognome.Text = "";
+            tbCodiceFiscale.Text = "";
+            tbDataDiNascita.Text = "";
+            tbDataRilascioPortoArmi.Text = "";
+            tbNumeroPortoArmi.Text = "";
+            tbCapNascita.Text = "";
+            tbComuneNascita.Text = "";
+            tbProvinciaNascita.Text = "";
+            tbIndirizzoResistenza.Text = "";
+            tbCapResistenza.Text = "";
+            tbComuneResidenza.Text = "";
+            tbProvinciaResistenza.Text = "";
+            tbSezione.Text = "";
+            tbProvincia.Text = "";
+            tbDataPagamento.Text = "";
+            tbNumero.Text = "";
+            tbTipo.Text = "";
+
+            this.mostraFiltri();
+
+            this.label10.Text = "Filtri";
+            this.addUser_btn.Visible = true;
+            this.saveUser_btn.Visible = false;
+            this.annullla_btn.Visible = false;
+            this.editUser_btn.Visible = true;
+
+            annulla = false;
+        }
+
+        private void annullla_btn_Click(object sender, EventArgs e)
+        {
+            annulla = true;
+            saveUser_btn.PerformClick();
         }
     }
 }
