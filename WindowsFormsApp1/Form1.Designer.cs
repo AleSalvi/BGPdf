@@ -36,7 +36,27 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.annullla_btn = new System.Windows.Forms.Button();
+            this.tbNomeF = new System.Windows.Forms.TextBox();
+            this.tbProvinciaNascitaF = new System.Windows.Forms.TextBox();
+            this.tbCapNascitaF = new System.Windows.Forms.TextBox();
+            this.tbComuneNascitaF = new System.Windows.Forms.TextBox();
+            this.tbDataRilascioPortoArmiF = new System.Windows.Forms.TextBox();
+            this.tbProvinciaResistenzaF = new System.Windows.Forms.TextBox();
+            this.tbCapResistenzaF = new System.Windows.Forms.TextBox();
+            this.tbCodiceFiscaleF = new System.Windows.Forms.TextBox();
+            this.tbNumeroPortoArmiF = new System.Windows.Forms.TextBox();
+            this.tbIndirizzoResistenzaF = new System.Windows.Forms.TextBox();
+            this.tbComuneResidenzaF = new System.Windows.Forms.TextBox();
+            this.tbTipoF = new System.Windows.Forms.TextBox();
+            this.tbNumeroF = new System.Windows.Forms.TextBox();
+            this.tbProvinciaF = new System.Windows.Forms.TextBox();
+            this.tbDataPagamentoF = new System.Windows.Forms.TextBox();
+            this.tbDataDiNascitaF = new System.Windows.Forms.TextBox();
+            this.tbSezioneF = new System.Windows.Forms.TextBox();
+            this.tbCognomeF = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.saveUser_btn = new System.Windows.Forms.Button();
             this.tbProvinciaNascita = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tbCapNascita = new System.Windows.Forms.TextBox();
@@ -72,27 +92,8 @@ namespace WindowsFormsApp1
             this.addUser_btn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.editUser_btn = new System.Windows.Forms.Button();
-            this.saveUser_btn = new System.Windows.Forms.Button();
             this.pdf1 = new System.Windows.Forms.Button();
-            this.tbNomeF = new System.Windows.Forms.TextBox();
-            this.tbProvinciaNascitaF = new System.Windows.Forms.TextBox();
-            this.tbCapNascitaF = new System.Windows.Forms.TextBox();
-            this.tbComuneNascitaF = new System.Windows.Forms.TextBox();
-            this.tbDataRilascioPortoArmiF = new System.Windows.Forms.TextBox();
-            this.tbProvinciaResistenzaF = new System.Windows.Forms.TextBox();
-            this.tbCapResistenzaF = new System.Windows.Forms.TextBox();
-            this.tbCodiceFiscaleF = new System.Windows.Forms.TextBox();
-            this.tbNumeroPortoArmiF = new System.Windows.Forms.TextBox();
-            this.tbIndirizzoResistenzaF = new System.Windows.Forms.TextBox();
-            this.tbComuneResidenzaF = new System.Windows.Forms.TextBox();
-            this.tbTipoF = new System.Windows.Forms.TextBox();
-            this.tbNumeroF = new System.Windows.Forms.TextBox();
-            this.tbProvinciaF = new System.Windows.Forms.TextBox();
-            this.tbDataPagamentoF = new System.Windows.Forms.TextBox();
-            this.tbDataDiNascitaF = new System.Windows.Forms.TextBox();
-            this.tbSezioneF = new System.Windows.Forms.TextBox();
-            this.tbCognomeF = new System.Windows.Forms.TextBox();
-            this.annullla_btn = new System.Windows.Forms.Button();
+            this.filtri_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -141,6 +142,7 @@ namespace WindowsFormsApp1
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.filtri_btn);
             this.panel1.Controls.Add(this.annullla_btn);
             this.panel1.Controls.Add(this.tbNomeF);
             this.panel1.Controls.Add(this.tbProvinciaNascitaF);
@@ -203,6 +205,143 @@ namespace WindowsFormsApp1
             this.panel1.Size = new System.Drawing.Size(303, 591);
             this.panel1.TabIndex = 9;
             // 
+            // annullla_btn
+            // 
+            this.annullla_btn.Location = new System.Drawing.Point(157, 549);
+            this.annullla_btn.Name = "annullla_btn";
+            this.annullla_btn.Size = new System.Drawing.Size(65, 23);
+            this.annullla_btn.TabIndex = 65;
+            this.annullla_btn.Text = "Annulla";
+            this.annullla_btn.UseVisualStyleBackColor = true;
+            this.annullla_btn.Visible = false;
+            this.annullla_btn.Click += new System.EventHandler(this.annullla_btn_Click);
+            // 
+            // tbNomeF
+            // 
+            this.tbNomeF.Location = new System.Drawing.Point(18, 84);
+            this.tbNomeF.Name = "tbNomeF";
+            this.tbNomeF.Size = new System.Drawing.Size(279, 20);
+            this.tbNomeF.TabIndex = 64;
+            // 
+            // tbProvinciaNascitaF
+            // 
+            this.tbProvinciaNascitaF.Location = new System.Drawing.Point(18, 318);
+            this.tbProvinciaNascitaF.Name = "tbProvinciaNascitaF";
+            this.tbProvinciaNascitaF.Size = new System.Drawing.Size(279, 20);
+            this.tbProvinciaNascitaF.TabIndex = 63;
+            // 
+            // tbCapNascitaF
+            // 
+            this.tbCapNascitaF.Location = new System.Drawing.Point(18, 279);
+            this.tbCapNascitaF.Name = "tbCapNascitaF";
+            this.tbCapNascitaF.Size = new System.Drawing.Size(133, 20);
+            this.tbCapNascitaF.TabIndex = 61;
+            // 
+            // tbComuneNascitaF
+            // 
+            this.tbComuneNascitaF.Location = new System.Drawing.Point(163, 279);
+            this.tbComuneNascitaF.Name = "tbComuneNascitaF";
+            this.tbComuneNascitaF.Size = new System.Drawing.Size(134, 20);
+            this.tbComuneNascitaF.TabIndex = 62;
+            // 
+            // tbDataRilascioPortoArmiF
+            // 
+            this.tbDataRilascioPortoArmiF.Location = new System.Drawing.Point(164, 201);
+            this.tbDataRilascioPortoArmiF.Name = "tbDataRilascioPortoArmiF";
+            this.tbDataRilascioPortoArmiF.Size = new System.Drawing.Size(133, 20);
+            this.tbDataRilascioPortoArmiF.TabIndex = 60;
+            // 
+            // tbProvinciaResistenzaF
+            // 
+            this.tbProvinciaResistenzaF.Location = new System.Drawing.Point(18, 435);
+            this.tbProvinciaResistenzaF.Name = "tbProvinciaResistenzaF";
+            this.tbProvinciaResistenzaF.Size = new System.Drawing.Size(279, 20);
+            this.tbProvinciaResistenzaF.TabIndex = 59;
+            // 
+            // tbCapResistenzaF
+            // 
+            this.tbCapResistenzaF.Location = new System.Drawing.Point(18, 396);
+            this.tbCapResistenzaF.Name = "tbCapResistenzaF";
+            this.tbCapResistenzaF.Size = new System.Drawing.Size(133, 20);
+            this.tbCapResistenzaF.TabIndex = 58;
+            // 
+            // tbCodiceFiscaleF
+            // 
+            this.tbCodiceFiscaleF.Location = new System.Drawing.Point(18, 162);
+            this.tbCodiceFiscaleF.Name = "tbCodiceFiscaleF";
+            this.tbCodiceFiscaleF.Size = new System.Drawing.Size(279, 20);
+            this.tbCodiceFiscaleF.TabIndex = 57;
+            // 
+            // tbNumeroPortoArmiF
+            // 
+            this.tbNumeroPortoArmiF.Location = new System.Drawing.Point(18, 240);
+            this.tbNumeroPortoArmiF.Name = "tbNumeroPortoArmiF";
+            this.tbNumeroPortoArmiF.Size = new System.Drawing.Size(279, 20);
+            this.tbNumeroPortoArmiF.TabIndex = 56;
+            // 
+            // tbIndirizzoResistenzaF
+            // 
+            this.tbIndirizzoResistenzaF.Location = new System.Drawing.Point(18, 357);
+            this.tbIndirizzoResistenzaF.Name = "tbIndirizzoResistenzaF";
+            this.tbIndirizzoResistenzaF.Size = new System.Drawing.Size(279, 20);
+            this.tbIndirizzoResistenzaF.TabIndex = 54;
+            // 
+            // tbComuneResidenzaF
+            // 
+            this.tbComuneResidenzaF.Location = new System.Drawing.Point(163, 396);
+            this.tbComuneResidenzaF.Name = "tbComuneResidenzaF";
+            this.tbComuneResidenzaF.Size = new System.Drawing.Size(134, 20);
+            this.tbComuneResidenzaF.TabIndex = 55;
+            // 
+            // tbTipoF
+            // 
+            this.tbTipoF.Location = new System.Drawing.Point(19, 552);
+            this.tbTipoF.Name = "tbTipoF";
+            this.tbTipoF.Size = new System.Drawing.Size(132, 20);
+            this.tbTipoF.TabIndex = 52;
+            // 
+            // tbNumeroF
+            // 
+            this.tbNumeroF.Location = new System.Drawing.Point(163, 513);
+            this.tbNumeroF.Name = "tbNumeroF";
+            this.tbNumeroF.Size = new System.Drawing.Size(134, 20);
+            this.tbNumeroF.TabIndex = 53;
+            // 
+            // tbProvinciaF
+            // 
+            this.tbProvinciaF.Location = new System.Drawing.Point(164, 474);
+            this.tbProvinciaF.Name = "tbProvinciaF";
+            this.tbProvinciaF.Size = new System.Drawing.Size(133, 20);
+            this.tbProvinciaF.TabIndex = 50;
+            // 
+            // tbDataPagamentoF
+            // 
+            this.tbDataPagamentoF.Location = new System.Drawing.Point(18, 513);
+            this.tbDataPagamentoF.Name = "tbDataPagamentoF";
+            this.tbDataPagamentoF.Size = new System.Drawing.Size(133, 20);
+            this.tbDataPagamentoF.TabIndex = 51;
+            // 
+            // tbDataDiNascitaF
+            // 
+            this.tbDataDiNascitaF.Location = new System.Drawing.Point(18, 201);
+            this.tbDataDiNascitaF.Name = "tbDataDiNascitaF";
+            this.tbDataDiNascitaF.Size = new System.Drawing.Size(133, 20);
+            this.tbDataDiNascitaF.TabIndex = 48;
+            // 
+            // tbSezioneF
+            // 
+            this.tbSezioneF.Location = new System.Drawing.Point(18, 474);
+            this.tbSezioneF.Name = "tbSezioneF";
+            this.tbSezioneF.Size = new System.Drawing.Size(133, 20);
+            this.tbSezioneF.TabIndex = 49;
+            // 
+            // tbCognomeF
+            // 
+            this.tbCognomeF.Location = new System.Drawing.Point(18, 123);
+            this.tbCognomeF.Name = "tbCognomeF";
+            this.tbCognomeF.Size = new System.Drawing.Size(279, 20);
+            this.tbCognomeF.TabIndex = 47;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -211,6 +350,17 @@ namespace WindowsFormsApp1
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 45;
             this.label6.Text = "Tipo:";
+            // 
+            // saveUser_btn
+            // 
+            this.saveUser_btn.Location = new System.Drawing.Point(226, 549);
+            this.saveUser_btn.Name = "saveUser_btn";
+            this.saveUser_btn.Size = new System.Drawing.Size(65, 23);
+            this.saveUser_btn.TabIndex = 13;
+            this.saveUser_btn.Text = "Salva";
+            this.saveUser_btn.UseVisualStyleBackColor = true;
+            this.saveUser_btn.Visible = false;
+            this.saveUser_btn.Click += new System.EventHandler(this.saveUser_btn_Click);
             // 
             // tbProvinciaNascita
             // 
@@ -485,6 +635,7 @@ namespace WindowsFormsApp1
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(987, 591);
             this.dataGridView1.TabIndex = 11;
@@ -499,17 +650,6 @@ namespace WindowsFormsApp1
             this.editUser_btn.UseVisualStyleBackColor = true;
             this.editUser_btn.Click += new System.EventHandler(this.editUser_btn_Click);
             // 
-            // saveUser_btn
-            // 
-            this.saveUser_btn.Location = new System.Drawing.Point(226, 549);
-            this.saveUser_btn.Name = "saveUser_btn";
-            this.saveUser_btn.Size = new System.Drawing.Size(65, 23);
-            this.saveUser_btn.TabIndex = 13;
-            this.saveUser_btn.Text = "Salva";
-            this.saveUser_btn.UseVisualStyleBackColor = true;
-            this.saveUser_btn.Visible = false;
-            this.saveUser_btn.Click += new System.EventHandler(this.saveUser_btn_Click);
-            // 
             // pdf1
             // 
             this.pdf1.Location = new System.Drawing.Point(683, 609);
@@ -519,142 +659,15 @@ namespace WindowsFormsApp1
             this.pdf1.Text = "Create Pdf";
             this.pdf1.UseVisualStyleBackColor = true;
             // 
-            // tbNomeF
+            // filtri_btn
             // 
-            this.tbNomeF.Location = new System.Drawing.Point(18, 84);
-            this.tbNomeF.Name = "tbNomeF";
-            this.tbNomeF.Size = new System.Drawing.Size(279, 20);
-            this.tbNomeF.TabIndex = 64;
-            // 
-            // tbProvinciaNascitaF
-            // 
-            this.tbProvinciaNascitaF.Location = new System.Drawing.Point(18, 318);
-            this.tbProvinciaNascitaF.Name = "tbProvinciaNascitaF";
-            this.tbProvinciaNascitaF.Size = new System.Drawing.Size(279, 20);
-            this.tbProvinciaNascitaF.TabIndex = 63;
-            // 
-            // tbCapNascitaF
-            // 
-            this.tbCapNascitaF.Location = new System.Drawing.Point(18, 279);
-            this.tbCapNascitaF.Name = "tbCapNascitaF";
-            this.tbCapNascitaF.Size = new System.Drawing.Size(133, 20);
-            this.tbCapNascitaF.TabIndex = 61;
-            // 
-            // tbComuneNascitaF
-            // 
-            this.tbComuneNascitaF.Location = new System.Drawing.Point(163, 279);
-            this.tbComuneNascitaF.Name = "tbComuneNascitaF";
-            this.tbComuneNascitaF.Size = new System.Drawing.Size(134, 20);
-            this.tbComuneNascitaF.TabIndex = 62;
-            // 
-            // tbDataRilascioPortoArmiF
-            // 
-            this.tbDataRilascioPortoArmiF.Location = new System.Drawing.Point(164, 201);
-            this.tbDataRilascioPortoArmiF.Name = "tbDataRilascioPortoArmiF";
-            this.tbDataRilascioPortoArmiF.Size = new System.Drawing.Size(133, 20);
-            this.tbDataRilascioPortoArmiF.TabIndex = 60;
-            // 
-            // tbProvinciaResistenzaF
-            // 
-            this.tbProvinciaResistenzaF.Location = new System.Drawing.Point(18, 435);
-            this.tbProvinciaResistenzaF.Name = "tbProvinciaResistenzaF";
-            this.tbProvinciaResistenzaF.Size = new System.Drawing.Size(279, 20);
-            this.tbProvinciaResistenzaF.TabIndex = 59;
-            // 
-            // tbCapResistenzaF
-            // 
-            this.tbCapResistenzaF.Location = new System.Drawing.Point(18, 396);
-            this.tbCapResistenzaF.Name = "tbCapResistenzaF";
-            this.tbCapResistenzaF.Size = new System.Drawing.Size(133, 20);
-            this.tbCapResistenzaF.TabIndex = 58;
-            // 
-            // tbCodiceFiscaleF
-            // 
-            this.tbCodiceFiscaleF.Location = new System.Drawing.Point(18, 162);
-            this.tbCodiceFiscaleF.Name = "tbCodiceFiscaleF";
-            this.tbCodiceFiscaleF.Size = new System.Drawing.Size(279, 20);
-            this.tbCodiceFiscaleF.TabIndex = 57;
-            // 
-            // tbNumeroPortoArmiF
-            // 
-            this.tbNumeroPortoArmiF.Location = new System.Drawing.Point(18, 240);
-            this.tbNumeroPortoArmiF.Name = "tbNumeroPortoArmiF";
-            this.tbNumeroPortoArmiF.Size = new System.Drawing.Size(279, 20);
-            this.tbNumeroPortoArmiF.TabIndex = 56;
-            // 
-            // tbIndirizzoResistenzaF
-            // 
-            this.tbIndirizzoResistenzaF.Location = new System.Drawing.Point(18, 357);
-            this.tbIndirizzoResistenzaF.Name = "tbIndirizzoResistenzaF";
-            this.tbIndirizzoResistenzaF.Size = new System.Drawing.Size(279, 20);
-            this.tbIndirizzoResistenzaF.TabIndex = 54;
-            // 
-            // tbComuneResidenzaF
-            // 
-            this.tbComuneResidenzaF.Location = new System.Drawing.Point(163, 396);
-            this.tbComuneResidenzaF.Name = "tbComuneResidenzaF";
-            this.tbComuneResidenzaF.Size = new System.Drawing.Size(134, 20);
-            this.tbComuneResidenzaF.TabIndex = 55;
-            // 
-            // tbTipoF
-            // 
-            this.tbTipoF.Location = new System.Drawing.Point(19, 552);
-            this.tbTipoF.Name = "tbTipoF";
-            this.tbTipoF.Size = new System.Drawing.Size(132, 20);
-            this.tbTipoF.TabIndex = 52;
-            // 
-            // tbNumeroF
-            // 
-            this.tbNumeroF.Location = new System.Drawing.Point(163, 513);
-            this.tbNumeroF.Name = "tbNumeroF";
-            this.tbNumeroF.Size = new System.Drawing.Size(134, 20);
-            this.tbNumeroF.TabIndex = 53;
-            // 
-            // tbProvinciaF
-            // 
-            this.tbProvinciaF.Location = new System.Drawing.Point(164, 474);
-            this.tbProvinciaF.Name = "tbProvinciaF";
-            this.tbProvinciaF.Size = new System.Drawing.Size(133, 20);
-            this.tbProvinciaF.TabIndex = 50;
-            // 
-            // tbDataPagamentoF
-            // 
-            this.tbDataPagamentoF.Location = new System.Drawing.Point(18, 513);
-            this.tbDataPagamentoF.Name = "tbDataPagamentoF";
-            this.tbDataPagamentoF.Size = new System.Drawing.Size(133, 20);
-            this.tbDataPagamentoF.TabIndex = 51;
-            // 
-            // tbDataDiNascitaF
-            // 
-            this.tbDataDiNascitaF.Location = new System.Drawing.Point(18, 201);
-            this.tbDataDiNascitaF.Name = "tbDataDiNascitaF";
-            this.tbDataDiNascitaF.Size = new System.Drawing.Size(133, 20);
-            this.tbDataDiNascitaF.TabIndex = 48;
-            // 
-            // tbSezioneF
-            // 
-            this.tbSezioneF.Location = new System.Drawing.Point(18, 474);
-            this.tbSezioneF.Name = "tbSezioneF";
-            this.tbSezioneF.Size = new System.Drawing.Size(133, 20);
-            this.tbSezioneF.TabIndex = 49;
-            // 
-            // tbCognomeF
-            // 
-            this.tbCognomeF.Location = new System.Drawing.Point(18, 123);
-            this.tbCognomeF.Name = "tbCognomeF";
-            this.tbCognomeF.Size = new System.Drawing.Size(279, 20);
-            this.tbCognomeF.TabIndex = 47;
-            // 
-            // annullla_btn
-            // 
-            this.annullla_btn.Location = new System.Drawing.Point(157, 549);
-            this.annullla_btn.Name = "annullla_btn";
-            this.annullla_btn.Size = new System.Drawing.Size(65, 23);
-            this.annullla_btn.TabIndex = 65;
-            this.annullla_btn.Text = "Annulla";
-            this.annullla_btn.UseVisualStyleBackColor = true;
-            this.annullla_btn.Visible = false;
-            this.annullla_btn.Click += new System.EventHandler(this.annullla_btn_Click);
+            this.filtri_btn.Location = new System.Drawing.Point(157, 549);
+            this.filtri_btn.Name = "filtri_btn";
+            this.filtri_btn.Size = new System.Drawing.Size(134, 23);
+            this.filtri_btn.TabIndex = 15;
+            this.filtri_btn.Text = "Applica filtri";
+            this.filtri_btn.UseVisualStyleBackColor = true;
+            this.filtri_btn.Click += new System.EventHandler(this.filtri_btn_Click);
             // 
             // Form1
             // 
@@ -747,6 +760,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox tbSezioneF;
         private System.Windows.Forms.TextBox tbCognomeF;
         private System.Windows.Forms.Button annullla_btn;
+        private System.Windows.Forms.Button filtri_btn;
     }
 }
 

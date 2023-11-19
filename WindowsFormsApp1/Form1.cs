@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using UglyToad.PdfPig;
 using UglyToad.PdfPig.Content;
@@ -56,6 +57,7 @@ namespace WindowsFormsApp1
                             //        if ((x * 10) % 50 == 0 && (y * 5) % 50 == 0)
                             //        {
                             //            pdfManagment.WriteLineOnPdf(ref resultPage, (x * 10).ToString() + "," + (y * 5).ToString(), 5, x * 10, y * 5, helvetica);
+                            //            pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["Name"].Value.ToString(), 10, 10, 700, helvetica);
                             //        }
                             //        else
                             //        {
@@ -94,6 +96,7 @@ namespace WindowsFormsApp1
         }
         public void mostraFiltri()
         {
+            filtri_btn.Visible = true;
             tbNomeF.Visible = true;
             tbCognomeF.Visible = true;
             tbCodiceFiscaleF.Visible = true;
@@ -115,6 +118,7 @@ namespace WindowsFormsApp1
         }
         public void nascondiFiltri()
         {
+            filtri_btn.Visible = false;
             tbNomeF.Visible = false;
             tbCognomeF.Visible = false;
             tbCodiceFiscaleF.Visible = false;
@@ -193,8 +197,8 @@ namespace WindowsFormsApp1
 
             this.nascondiFiltri();
             
-            this.addUser_btn.Visible = false;
-            this.editUser_btn.Visible = false;
+            this.addUser_btn.Enabled = false;
+            this.editUser_btn.Enabled = false;
             this.saveUser_btn.Visible = true;
             this.annullla_btn.Visible = true;
         }
@@ -206,7 +210,8 @@ namespace WindowsFormsApp1
 
             this.nascondiFiltri();
             
-            this.addUser_btn.Visible = false;
+            this.addUser_btn.Enabled = false;
+            this.editUser_btn.Enabled = false;
             this.saveUser_btn.Visible = true;
             this.annullla_btn.Visible = true;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
@@ -236,7 +241,7 @@ namespace WindowsFormsApp1
         {
             if (annulla == false)
             {
-                if (this.editUser_btn.Visible == true)
+                if (this.editUser_btn.Enabled == true)
                 {
                     editUser();
                 }
@@ -267,10 +272,10 @@ namespace WindowsFormsApp1
             this.mostraFiltri();
 
             this.label10.Text = "Filtri";
-            this.addUser_btn.Visible = true;
+            this.addUser_btn.Enabled = true;
             this.saveUser_btn.Visible = false;
             this.annullla_btn.Visible = false;
-            this.editUser_btn.Visible = true;
+            this.editUser_btn.Enabled = true;
 
             annulla = false;
         }
@@ -280,5 +285,38 @@ namespace WindowsFormsApp1
             annulla = true;
             saveUser_btn.PerformClick();
         }
+
+        private void filtri_btn_Click(object sender, EventArgs e)
+        {
+            List<User> users = sql.GetTempUser();
+
+            // Applica il filtro sulla lista
+            List<User> utentiFiltrati = users
+                .Where(u =>
+                    u.nome.Contains(tbNomeF.Text) &&
+                    u.cognome.Contains(tbCognomeF.Text) &&
+                    u.codice_fiscale.Contains(tbCodiceFiscaleF.Text) &&
+                    u.data_nascita.Contains(tbDataDiNascitaF.Text) &&
+                    u.data_rilascio_porto_armi.Contains(tbDataRilascioPortoArmiF.Text) &&
+                    u.numero_porto_armi.Contains(tbNumeroPortoArmiF.Text) &&
+                    u.cap_nascita.Contains(tbCapNascitaF.Text) &&
+                    u.comune_nascita.Contains(tbComuneNascitaF.Text) &&
+                    u.provincia_nascita.Contains(tbProvinciaNascitaF.Text) &&
+                    u.indirizzo_residenza.Contains(tbIndirizzoResistenzaF.Text) &&
+                    u.cap_residenza.Contains(tbCapResistenzaF.Text) &&
+                    u.comune_residenza.Contains(tbComuneResidenzaF.Text) &&
+                    u.provincia_residenza.Contains(tbProvinciaResistenzaF.Text) &&
+                    u.sezione.Contains(tbSezioneF.Text) &&
+                    u.provincia.Contains(tbProvinciaF.Text) &&
+                    u.data_pagamento.Contains(tbDataPagamentoF.Text) &&
+                    u.numero.Contains(tbNumeroF.Text) &&
+                    u.tipo.Contains(tbTipoF.Text)
+                )
+                .ToList();
+
+            // Assegna la lista filtrata al DataGridView
+            dataGridView1.DataSource = utentiFiltrati;
+        }
+
     }
 }

@@ -252,12 +252,35 @@ namespace WindowsFormsApp1
                 tipo = "Standard"
             };
 
+            // Instance 6
+            User user6 = new User
+            {
+                nome = "a",
+                cognome = "a",
+                codice_fiscale = "a",
+                data_nascita = "a",
+                data_rilascio_porto_armi = "a",
+                numero_porto_armi = "a",
+                cap_nascita = "a",
+                comune_nascita = "a",
+                provincia_nascita = "a",
+                indirizzo_residenza = "a",
+                cap_residenza = "a",
+                comune_residenza = "a",
+                provincia_residenza = "a",
+                sezione = "a",
+                provincia = "a",
+                data_pagamento = "a",
+                numero = "a",
+                tipo = "a"
+            };
 
             users.Add(user1);
             users.Add(user2);
             users.Add(user3);
             users.Add(user4);
             users.Add(user5);
+            users.Add(user6);
 
 
             return users;
