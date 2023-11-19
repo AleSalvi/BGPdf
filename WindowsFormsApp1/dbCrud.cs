@@ -157,7 +157,10 @@ namespace WindowsFormsApp1
                 provincia = "MI",
                 data_pagamento = "01/10/2023",
                 numero = "12345",
-                tipo = "Standard"
+                tipo = "Standard",
+                telefono = "034509880",
+                cellulare_whatsapp = "3714103226",
+                mail = "alessandr023salvi@gmail.com"
             };
 
             // Instance 2
@@ -180,7 +183,10 @@ namespace WindowsFormsApp1
                 provincia = "TO",
                 data_pagamento = "05/10/2023",
                 numero = "67890",
-                tipo = "Premium"
+                tipo = "Premium",
+                telefono = "034509880",
+                cellulare_whatsapp = "3714103226",
+                mail = "alessandr023salvi@gmail.com"
             };
 
             // Instance 3
@@ -203,7 +209,10 @@ namespace WindowsFormsApp1
                 provincia = "FI",
                 data_pagamento = "15/10/2023",
                 numero = "54321",
-                tipo = "Basic"
+                tipo = "Basic",
+                telefono = "034509880",
+                cellulare_whatsapp = "3714103226",
+                mail = "alessandr023salvi@gmail.com"
             };
 
             // Instance 4
@@ -226,7 +235,10 @@ namespace WindowsFormsApp1
                 provincia = "VE",
                 data_pagamento = "20/10/2023",
                 numero = "98765",
-                tipo = "Premium"
+                tipo = "Premium",
+                telefono = "034509880",
+                cellulare_whatsapp = "3714103226",
+                mail = "alessandr023salvi@gmail.com"
             };
 
             // Instance 5
@@ -249,7 +261,10 @@ namespace WindowsFormsApp1
                 provincia = "BO",
                 data_pagamento = "25/10/2023",
                 numero = "13579",
-                tipo = "Standard"
+                tipo = "Standard",
+                telefono = "034509880",
+                cellulare_whatsapp = "3714103226",
+                mail = "alessandr023salvi@gmail.com"
             };
 
             // Instance 6
@@ -272,7 +287,10 @@ namespace WindowsFormsApp1
                 provincia = "a",
                 data_pagamento = "a",
                 numero = "a",
-                tipo = "a"
+                tipo = "a",
+                telefono = "a",
+                cellulare_whatsapp = "a",
+                mail = "a"
             };
 
             users.Add(user1);

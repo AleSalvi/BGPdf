@@ -29,8 +29,11 @@ namespace WindowsFormsApp1
         public string data_pagamento { get; set; }
         public string numero { get; set; }
         public string tipo { get; set; }
+        public string telefono { get; set; }
+        public string cellulare_whatsapp { get; set; }
+        public string mail { get; set; }
 
-        public void SetUser(string nome, string cognome, string codice_fiscale, string data_nascita, string data_rilascio_porto_armi, string numero_porto_armi, string cap_nascita, string comune_nascita, string provincia_nascita, string indirizzo_residenza, string cap_residenza, string comune_residenza, string provincia_residenza, string sezione, string provincia, string data_pagamento, string numero, string tipo)
+        public void SetUser(string nome, string cognome, string codice_fiscale, string data_nascita, string data_rilascio_porto_armi, string numero_porto_armi, string cap_nascita, string comune_nascita, string provincia_nascita, string indirizzo_residenza, string cap_residenza, string comune_residenza, string provincia_residenza, string sezione, string provincia, string data_pagamento, string numero, string tipo, string telefono, string cellulare_whatsapp, string mail)
         {
             this.nome = nome;
             this.cognome = cognome;
@@ -50,6 +53,9 @@ namespace WindowsFormsApp1
             this.data_pagamento = data_pagamento;
             this.numero = numero;
             this.tipo = tipo;
+            this.telefono = telefono;
+            this.cellulare_whatsapp = cellulare_whatsapp;
+            this.mail = mail;
         }
     }
 }

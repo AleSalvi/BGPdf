@@ -36,6 +36,7 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.applica_filtri_btn = new System.Windows.Forms.Button();
             this.annullla_btn = new System.Windows.Forms.Button();
             this.tbNomeF = new System.Windows.Forms.TextBox();
             this.tbProvinciaNascitaF = new System.Windows.Forms.TextBox();
@@ -93,7 +94,16 @@ namespace WindowsFormsApp1
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.editUser_btn = new System.Windows.Forms.Button();
             this.pdf1 = new System.Windows.Forms.Button();
-            this.filtri_btn = new System.Windows.Forms.Button();
+            this.tbTelefonoF = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbTelefono = new System.Windows.Forms.TextBox();
+            this.tbMailF = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tbMail = new System.Windows.Forms.TextBox();
+            this.tbCellulareF = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tbCellulare = new System.Windows.Forms.TextBox();
+            this.pulisci_filtri_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -110,14 +120,14 @@ namespace WindowsFormsApp1
             // 
             // tbNome
             // 
-            this.tbNome.Location = new System.Drawing.Point(12, 84);
+            this.tbNome.Location = new System.Drawing.Point(7, 51);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(279, 20);
             this.tbNome.TabIndex = 1;
             // 
             // tbCognome
             // 
-            this.tbCognome.Location = new System.Drawing.Point(12, 123);
+            this.tbCognome.Location = new System.Drawing.Point(7, 90);
             this.tbCognome.Name = "tbCognome";
             this.tbCognome.Size = new System.Drawing.Size(279, 20);
             this.tbCognome.TabIndex = 2;
@@ -125,7 +135,7 @@ namespace WindowsFormsApp1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 68);
+            this.label1.Location = new System.Drawing.Point(4, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 5;
@@ -134,7 +144,7 @@ namespace WindowsFormsApp1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 107);
+            this.label2.Location = new System.Drawing.Point(4, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 6;
@@ -142,7 +152,17 @@ namespace WindowsFormsApp1
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.filtri_btn);
+            this.panel1.Controls.Add(this.pulisci_filtri_btn);
+            this.panel1.Controls.Add(this.tbMailF);
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.tbMail);
+            this.panel1.Controls.Add(this.tbCellulareF);
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.tbCellulare);
+            this.panel1.Controls.Add(this.applica_filtri_btn);
+            this.panel1.Controls.Add(this.tbTelefonoF);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.tbTelefono);
             this.panel1.Controls.Add(this.annullla_btn);
             this.panel1.Controls.Add(this.tbNomeF);
             this.panel1.Controls.Add(this.tbProvinciaNascitaF);
@@ -202,14 +222,24 @@ namespace WindowsFormsApp1
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1011, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(303, 591);
+            this.panel1.Size = new System.Drawing.Size(303, 620);
             this.panel1.TabIndex = 9;
+            // 
+            // applica_filtri_btn
+            // 
+            this.applica_filtri_btn.Location = new System.Drawing.Point(153, 586);
+            this.applica_filtri_btn.Name = "applica_filtri_btn";
+            this.applica_filtri_btn.Size = new System.Drawing.Size(131, 23);
+            this.applica_filtri_btn.TabIndex = 15;
+            this.applica_filtri_btn.Text = "Applica filtri";
+            this.applica_filtri_btn.UseVisualStyleBackColor = true;
+            this.applica_filtri_btn.Click += new System.EventHandler(this.filtri_btn_Click);
             // 
             // annullla_btn
             // 
-            this.annullla_btn.Location = new System.Drawing.Point(157, 549);
+            this.annullla_btn.Location = new System.Drawing.Point(6, 586);
             this.annullla_btn.Name = "annullla_btn";
-            this.annullla_btn.Size = new System.Drawing.Size(65, 23);
+            this.annullla_btn.Size = new System.Drawing.Size(133, 23);
             this.annullla_btn.TabIndex = 65;
             this.annullla_btn.Text = "Annulla";
             this.annullla_btn.UseVisualStyleBackColor = true;
@@ -218,126 +248,126 @@ namespace WindowsFormsApp1
             // 
             // tbNomeF
             // 
-            this.tbNomeF.Location = new System.Drawing.Point(18, 84);
+            this.tbNomeF.Location = new System.Drawing.Point(13, 51);
             this.tbNomeF.Name = "tbNomeF";
             this.tbNomeF.Size = new System.Drawing.Size(279, 20);
             this.tbNomeF.TabIndex = 64;
             // 
             // tbProvinciaNascitaF
             // 
-            this.tbProvinciaNascitaF.Location = new System.Drawing.Point(18, 318);
+            this.tbProvinciaNascitaF.Location = new System.Drawing.Point(13, 285);
             this.tbProvinciaNascitaF.Name = "tbProvinciaNascitaF";
             this.tbProvinciaNascitaF.Size = new System.Drawing.Size(279, 20);
             this.tbProvinciaNascitaF.TabIndex = 63;
             // 
             // tbCapNascitaF
             // 
-            this.tbCapNascitaF.Location = new System.Drawing.Point(18, 279);
+            this.tbCapNascitaF.Location = new System.Drawing.Point(13, 246);
             this.tbCapNascitaF.Name = "tbCapNascitaF";
             this.tbCapNascitaF.Size = new System.Drawing.Size(133, 20);
             this.tbCapNascitaF.TabIndex = 61;
             // 
             // tbComuneNascitaF
             // 
-            this.tbComuneNascitaF.Location = new System.Drawing.Point(163, 279);
+            this.tbComuneNascitaF.Location = new System.Drawing.Point(158, 246);
             this.tbComuneNascitaF.Name = "tbComuneNascitaF";
             this.tbComuneNascitaF.Size = new System.Drawing.Size(134, 20);
             this.tbComuneNascitaF.TabIndex = 62;
             // 
             // tbDataRilascioPortoArmiF
             // 
-            this.tbDataRilascioPortoArmiF.Location = new System.Drawing.Point(164, 201);
+            this.tbDataRilascioPortoArmiF.Location = new System.Drawing.Point(159, 168);
             this.tbDataRilascioPortoArmiF.Name = "tbDataRilascioPortoArmiF";
             this.tbDataRilascioPortoArmiF.Size = new System.Drawing.Size(133, 20);
             this.tbDataRilascioPortoArmiF.TabIndex = 60;
             // 
             // tbProvinciaResistenzaF
             // 
-            this.tbProvinciaResistenzaF.Location = new System.Drawing.Point(18, 435);
+            this.tbProvinciaResistenzaF.Location = new System.Drawing.Point(13, 402);
             this.tbProvinciaResistenzaF.Name = "tbProvinciaResistenzaF";
             this.tbProvinciaResistenzaF.Size = new System.Drawing.Size(279, 20);
             this.tbProvinciaResistenzaF.TabIndex = 59;
             // 
             // tbCapResistenzaF
             // 
-            this.tbCapResistenzaF.Location = new System.Drawing.Point(18, 396);
+            this.tbCapResistenzaF.Location = new System.Drawing.Point(13, 363);
             this.tbCapResistenzaF.Name = "tbCapResistenzaF";
             this.tbCapResistenzaF.Size = new System.Drawing.Size(133, 20);
             this.tbCapResistenzaF.TabIndex = 58;
             // 
             // tbCodiceFiscaleF
             // 
-            this.tbCodiceFiscaleF.Location = new System.Drawing.Point(18, 162);
+            this.tbCodiceFiscaleF.Location = new System.Drawing.Point(13, 129);
             this.tbCodiceFiscaleF.Name = "tbCodiceFiscaleF";
             this.tbCodiceFiscaleF.Size = new System.Drawing.Size(279, 20);
             this.tbCodiceFiscaleF.TabIndex = 57;
             // 
             // tbNumeroPortoArmiF
             // 
-            this.tbNumeroPortoArmiF.Location = new System.Drawing.Point(18, 240);
+            this.tbNumeroPortoArmiF.Location = new System.Drawing.Point(13, 207);
             this.tbNumeroPortoArmiF.Name = "tbNumeroPortoArmiF";
             this.tbNumeroPortoArmiF.Size = new System.Drawing.Size(279, 20);
             this.tbNumeroPortoArmiF.TabIndex = 56;
             // 
             // tbIndirizzoResistenzaF
             // 
-            this.tbIndirizzoResistenzaF.Location = new System.Drawing.Point(18, 357);
+            this.tbIndirizzoResistenzaF.Location = new System.Drawing.Point(13, 324);
             this.tbIndirizzoResistenzaF.Name = "tbIndirizzoResistenzaF";
             this.tbIndirizzoResistenzaF.Size = new System.Drawing.Size(279, 20);
             this.tbIndirizzoResistenzaF.TabIndex = 54;
             // 
             // tbComuneResidenzaF
             // 
-            this.tbComuneResidenzaF.Location = new System.Drawing.Point(163, 396);
+            this.tbComuneResidenzaF.Location = new System.Drawing.Point(158, 363);
             this.tbComuneResidenzaF.Name = "tbComuneResidenzaF";
             this.tbComuneResidenzaF.Size = new System.Drawing.Size(134, 20);
             this.tbComuneResidenzaF.TabIndex = 55;
             // 
             // tbTipoF
             // 
-            this.tbTipoF.Location = new System.Drawing.Point(19, 552);
+            this.tbTipoF.Location = new System.Drawing.Point(14, 519);
             this.tbTipoF.Name = "tbTipoF";
             this.tbTipoF.Size = new System.Drawing.Size(132, 20);
             this.tbTipoF.TabIndex = 52;
             // 
             // tbNumeroF
             // 
-            this.tbNumeroF.Location = new System.Drawing.Point(163, 513);
+            this.tbNumeroF.Location = new System.Drawing.Point(158, 480);
             this.tbNumeroF.Name = "tbNumeroF";
             this.tbNumeroF.Size = new System.Drawing.Size(134, 20);
             this.tbNumeroF.TabIndex = 53;
             // 
             // tbProvinciaF
             // 
-            this.tbProvinciaF.Location = new System.Drawing.Point(164, 474);
+            this.tbProvinciaF.Location = new System.Drawing.Point(159, 441);
             this.tbProvinciaF.Name = "tbProvinciaF";
             this.tbProvinciaF.Size = new System.Drawing.Size(133, 20);
             this.tbProvinciaF.TabIndex = 50;
             // 
             // tbDataPagamentoF
             // 
-            this.tbDataPagamentoF.Location = new System.Drawing.Point(18, 513);
+            this.tbDataPagamentoF.Location = new System.Drawing.Point(13, 480);
             this.tbDataPagamentoF.Name = "tbDataPagamentoF";
             this.tbDataPagamentoF.Size = new System.Drawing.Size(133, 20);
             this.tbDataPagamentoF.TabIndex = 51;
             // 
             // tbDataDiNascitaF
             // 
-            this.tbDataDiNascitaF.Location = new System.Drawing.Point(18, 201);
+            this.tbDataDiNascitaF.Location = new System.Drawing.Point(13, 168);
             this.tbDataDiNascitaF.Name = "tbDataDiNascitaF";
             this.tbDataDiNascitaF.Size = new System.Drawing.Size(133, 20);
             this.tbDataDiNascitaF.TabIndex = 48;
             // 
             // tbSezioneF
             // 
-            this.tbSezioneF.Location = new System.Drawing.Point(18, 474);
+            this.tbSezioneF.Location = new System.Drawing.Point(13, 441);
             this.tbSezioneF.Name = "tbSezioneF";
             this.tbSezioneF.Size = new System.Drawing.Size(133, 20);
             this.tbSezioneF.TabIndex = 49;
             // 
             // tbCognomeF
             // 
-            this.tbCognomeF.Location = new System.Drawing.Point(18, 123);
+            this.tbCognomeF.Location = new System.Drawing.Point(13, 90);
             this.tbCognomeF.Name = "tbCognomeF";
             this.tbCognomeF.Size = new System.Drawing.Size(279, 20);
             this.tbCognomeF.TabIndex = 47;
@@ -345,7 +375,7 @@ namespace WindowsFormsApp1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 536);
+            this.label6.Location = new System.Drawing.Point(4, 503);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 45;
@@ -353,9 +383,9 @@ namespace WindowsFormsApp1
             // 
             // saveUser_btn
             // 
-            this.saveUser_btn.Location = new System.Drawing.Point(226, 549);
+            this.saveUser_btn.Location = new System.Drawing.Point(153, 586);
             this.saveUser_btn.Name = "saveUser_btn";
-            this.saveUser_btn.Size = new System.Drawing.Size(65, 23);
+            this.saveUser_btn.Size = new System.Drawing.Size(131, 23);
             this.saveUser_btn.TabIndex = 13;
             this.saveUser_btn.Text = "Salva";
             this.saveUser_btn.UseVisualStyleBackColor = true;
@@ -364,7 +394,7 @@ namespace WindowsFormsApp1
             // 
             // tbProvinciaNascita
             // 
-            this.tbProvinciaNascita.Location = new System.Drawing.Point(12, 318);
+            this.tbProvinciaNascita.Location = new System.Drawing.Point(7, 285);
             this.tbProvinciaNascita.Name = "tbProvinciaNascita";
             this.tbProvinciaNascita.Size = new System.Drawing.Size(279, 20);
             this.tbProvinciaNascita.TabIndex = 43;
@@ -372,7 +402,7 @@ namespace WindowsFormsApp1
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(9, 302);
+            this.label12.Location = new System.Drawing.Point(4, 269);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(91, 13);
             this.label12.TabIndex = 44;
@@ -380,14 +410,14 @@ namespace WindowsFormsApp1
             // 
             // tbCapNascita
             // 
-            this.tbCapNascita.Location = new System.Drawing.Point(12, 279);
+            this.tbCapNascita.Location = new System.Drawing.Point(7, 246);
             this.tbCapNascita.Name = "tbCapNascita";
             this.tbCapNascita.Size = new System.Drawing.Size(133, 20);
             this.tbCapNascita.TabIndex = 39;
             // 
             // tbComuneNascita
             // 
-            this.tbComuneNascita.Location = new System.Drawing.Point(157, 279);
+            this.tbComuneNascita.Location = new System.Drawing.Point(152, 246);
             this.tbComuneNascita.Name = "tbComuneNascita";
             this.tbComuneNascita.Size = new System.Drawing.Size(134, 20);
             this.tbComuneNascita.TabIndex = 40;
@@ -395,7 +425,7 @@ namespace WindowsFormsApp1
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(154, 263);
+            this.label13.Location = new System.Drawing.Point(149, 230);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(86, 13);
             this.label13.TabIndex = 42;
@@ -404,7 +434,7 @@ namespace WindowsFormsApp1
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 263);
+            this.label14.Location = new System.Drawing.Point(4, 230);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(68, 13);
             this.label14.TabIndex = 41;
@@ -412,7 +442,7 @@ namespace WindowsFormsApp1
             // 
             // tbDataRilascioPortoArmi
             // 
-            this.tbDataRilascioPortoArmi.Location = new System.Drawing.Point(158, 201);
+            this.tbDataRilascioPortoArmi.Location = new System.Drawing.Point(153, 168);
             this.tbDataRilascioPortoArmi.Name = "tbDataRilascioPortoArmi";
             this.tbDataRilascioPortoArmi.Size = new System.Drawing.Size(133, 20);
             this.tbDataRilascioPortoArmi.TabIndex = 37;
@@ -420,7 +450,7 @@ namespace WindowsFormsApp1
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(155, 185);
+            this.label19.Location = new System.Drawing.Point(150, 152);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(136, 13);
             this.label19.TabIndex = 38;
@@ -428,7 +458,7 @@ namespace WindowsFormsApp1
             // 
             // tbProvinciaResistenza
             // 
-            this.tbProvinciaResistenza.Location = new System.Drawing.Point(12, 435);
+            this.tbProvinciaResistenza.Location = new System.Drawing.Point(7, 402);
             this.tbProvinciaResistenza.Name = "tbProvinciaResistenza";
             this.tbProvinciaResistenza.Size = new System.Drawing.Size(279, 20);
             this.tbProvinciaResistenza.TabIndex = 35;
@@ -436,7 +466,7 @@ namespace WindowsFormsApp1
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(9, 419);
+            this.label18.Location = new System.Drawing.Point(4, 386);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(102, 13);
             this.label18.TabIndex = 36;
@@ -444,7 +474,7 @@ namespace WindowsFormsApp1
             // 
             // tbCapResistenza
             // 
-            this.tbCapResistenza.Location = new System.Drawing.Point(12, 396);
+            this.tbCapResistenza.Location = new System.Drawing.Point(7, 363);
             this.tbCapResistenza.Name = "tbCapResistenza";
             this.tbCapResistenza.Size = new System.Drawing.Size(133, 20);
             this.tbCapResistenza.TabIndex = 33;
@@ -452,7 +482,7 @@ namespace WindowsFormsApp1
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(9, 380);
+            this.label17.Location = new System.Drawing.Point(4, 347);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(79, 13);
             this.label17.TabIndex = 34;
@@ -462,7 +492,7 @@ namespace WindowsFormsApp1
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 26);
+            this.label10.Location = new System.Drawing.Point(3, 11);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 24);
             this.label10.TabIndex = 14;
@@ -470,7 +500,7 @@ namespace WindowsFormsApp1
             // 
             // tbCodiceFiscale
             // 
-            this.tbCodiceFiscale.Location = new System.Drawing.Point(12, 162);
+            this.tbCodiceFiscale.Location = new System.Drawing.Point(7, 129);
             this.tbCodiceFiscale.Name = "tbCodiceFiscale";
             this.tbCodiceFiscale.Size = new System.Drawing.Size(279, 20);
             this.tbCodiceFiscale.TabIndex = 31;
@@ -478,7 +508,7 @@ namespace WindowsFormsApp1
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 146);
+            this.label9.Location = new System.Drawing.Point(4, 113);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 13);
             this.label9.TabIndex = 32;
@@ -486,7 +516,7 @@ namespace WindowsFormsApp1
             // 
             // tbNumeroPortoArmi
             // 
-            this.tbNumeroPortoArmi.Location = new System.Drawing.Point(12, 240);
+            this.tbNumeroPortoArmi.Location = new System.Drawing.Point(7, 207);
             this.tbNumeroPortoArmi.Name = "tbNumeroPortoArmi";
             this.tbNumeroPortoArmi.Size = new System.Drawing.Size(279, 20);
             this.tbNumeroPortoArmi.TabIndex = 28;
@@ -494,7 +524,7 @@ namespace WindowsFormsApp1
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 224);
+            this.label11.Location = new System.Drawing.Point(4, 191);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(104, 13);
             this.label11.TabIndex = 30;
@@ -502,14 +532,14 @@ namespace WindowsFormsApp1
             // 
             // tbIndirizzoResistenza
             // 
-            this.tbIndirizzoResistenza.Location = new System.Drawing.Point(12, 357);
+            this.tbIndirizzoResistenza.Location = new System.Drawing.Point(7, 324);
             this.tbIndirizzoResistenza.Name = "tbIndirizzoResistenza";
             this.tbIndirizzoResistenza.Size = new System.Drawing.Size(279, 20);
             this.tbIndirizzoResistenza.TabIndex = 19;
             // 
             // tbComuneResidenza
             // 
-            this.tbComuneResidenza.Location = new System.Drawing.Point(157, 396);
+            this.tbComuneResidenza.Location = new System.Drawing.Point(152, 363);
             this.tbComuneResidenza.Name = "tbComuneResidenza";
             this.tbComuneResidenza.Size = new System.Drawing.Size(134, 20);
             this.tbComuneResidenza.TabIndex = 20;
@@ -517,7 +547,7 @@ namespace WindowsFormsApp1
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(154, 380);
+            this.label15.Location = new System.Drawing.Point(149, 347);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(97, 13);
             this.label15.TabIndex = 22;
@@ -526,7 +556,7 @@ namespace WindowsFormsApp1
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(9, 341);
+            this.label16.Location = new System.Drawing.Point(4, 308);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(96, 13);
             this.label16.TabIndex = 21;
@@ -534,14 +564,14 @@ namespace WindowsFormsApp1
             // 
             // tbTipo
             // 
-            this.tbTipo.Location = new System.Drawing.Point(13, 552);
+            this.tbTipo.Location = new System.Drawing.Point(8, 519);
             this.tbTipo.Name = "tbTipo";
             this.tbTipo.Size = new System.Drawing.Size(132, 20);
             this.tbTipo.TabIndex = 15;
             // 
             // tbNumero
             // 
-            this.tbNumero.Location = new System.Drawing.Point(157, 513);
+            this.tbNumero.Location = new System.Drawing.Point(152, 480);
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(134, 20);
             this.tbNumero.TabIndex = 16;
@@ -549,7 +579,7 @@ namespace WindowsFormsApp1
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(154, 497);
+            this.label5.Location = new System.Drawing.Point(149, 464);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 18;
@@ -557,14 +587,14 @@ namespace WindowsFormsApp1
             // 
             // tbProvincia
             // 
-            this.tbProvincia.Location = new System.Drawing.Point(158, 474);
+            this.tbProvincia.Location = new System.Drawing.Point(153, 441);
             this.tbProvincia.Name = "tbProvincia";
             this.tbProvincia.Size = new System.Drawing.Size(133, 20);
             this.tbProvincia.TabIndex = 11;
             // 
             // tbDataPagamento
             // 
-            this.tbDataPagamento.Location = new System.Drawing.Point(12, 513);
+            this.tbDataPagamento.Location = new System.Drawing.Point(7, 480);
             this.tbDataPagamento.Name = "tbDataPagamento";
             this.tbDataPagamento.Size = new System.Drawing.Size(133, 20);
             this.tbDataPagamento.TabIndex = 12;
@@ -572,7 +602,7 @@ namespace WindowsFormsApp1
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 497);
+            this.label7.Location = new System.Drawing.Point(4, 464);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 13);
             this.label7.TabIndex = 14;
@@ -581,7 +611,7 @@ namespace WindowsFormsApp1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(155, 458);
+            this.label8.Location = new System.Drawing.Point(150, 425);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 13);
             this.label8.TabIndex = 13;
@@ -589,14 +619,14 @@ namespace WindowsFormsApp1
             // 
             // tbDataDiNascita
             // 
-            this.tbDataDiNascita.Location = new System.Drawing.Point(12, 201);
+            this.tbDataDiNascita.Location = new System.Drawing.Point(7, 168);
             this.tbDataDiNascita.Name = "tbDataDiNascita";
             this.tbDataDiNascita.Size = new System.Drawing.Size(133, 20);
             this.tbDataDiNascita.TabIndex = 7;
             // 
             // tbSezione
             // 
-            this.tbSezione.Location = new System.Drawing.Point(12, 474);
+            this.tbSezione.Location = new System.Drawing.Point(7, 441);
             this.tbSezione.Name = "tbSezione";
             this.tbSezione.Size = new System.Drawing.Size(133, 20);
             this.tbSezione.TabIndex = 8;
@@ -604,7 +634,7 @@ namespace WindowsFormsApp1
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 458);
+            this.label3.Location = new System.Drawing.Point(4, 425);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 10;
@@ -613,7 +643,7 @@ namespace WindowsFormsApp1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 185);
+            this.label4.Location = new System.Drawing.Point(4, 152);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 9;
@@ -659,15 +689,84 @@ namespace WindowsFormsApp1
             this.pdf1.Text = "Create Pdf";
             this.pdf1.UseVisualStyleBackColor = true;
             // 
-            // filtri_btn
+            // tbTelefonoF
             // 
-            this.filtri_btn.Location = new System.Drawing.Point(157, 549);
-            this.filtri_btn.Name = "filtri_btn";
-            this.filtri_btn.Size = new System.Drawing.Size(134, 23);
-            this.filtri_btn.TabIndex = 15;
-            this.filtri_btn.Text = "Applica filtri";
-            this.filtri_btn.UseVisualStyleBackColor = true;
-            this.filtri_btn.Click += new System.EventHandler(this.filtri_btn_Click);
+            this.tbTelefonoF.Location = new System.Drawing.Point(159, 519);
+            this.tbTelefonoF.Name = "tbTelefonoF";
+            this.tbTelefonoF.Size = new System.Drawing.Size(132, 20);
+            this.tbTelefonoF.TabIndex = 68;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(149, 503);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(52, 13);
+            this.label20.TabIndex = 67;
+            this.label20.Text = "Telefono:";
+            // 
+            // tbTelefono
+            // 
+            this.tbTelefono.Location = new System.Drawing.Point(153, 519);
+            this.tbTelefono.Name = "tbTelefono";
+            this.tbTelefono.Size = new System.Drawing.Size(132, 20);
+            this.tbTelefono.TabIndex = 66;
+            // 
+            // tbMailF
+            // 
+            this.tbMailF.Location = new System.Drawing.Point(158, 556);
+            this.tbMailF.Name = "tbMailF";
+            this.tbMailF.Size = new System.Drawing.Size(132, 20);
+            this.tbMailF.TabIndex = 74;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(148, 540);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(29, 13);
+            this.label21.TabIndex = 73;
+            this.label21.Text = "Mail:";
+            // 
+            // tbMail
+            // 
+            this.tbMail.Location = new System.Drawing.Point(152, 556);
+            this.tbMail.Name = "tbMail";
+            this.tbMail.Size = new System.Drawing.Size(132, 20);
+            this.tbMail.TabIndex = 72;
+            // 
+            // tbCellulareF
+            // 
+            this.tbCellulareF.Location = new System.Drawing.Point(13, 556);
+            this.tbCellulareF.Name = "tbCellulareF";
+            this.tbCellulareF.Size = new System.Drawing.Size(132, 20);
+            this.tbCellulareF.TabIndex = 71;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(3, 540);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(99, 13);
+            this.label22.TabIndex = 70;
+            this.label22.Text = "Cellulare whatsapp:";
+            // 
+            // tbCellulare
+            // 
+            this.tbCellulare.Location = new System.Drawing.Point(7, 556);
+            this.tbCellulare.Name = "tbCellulare";
+            this.tbCellulare.Size = new System.Drawing.Size(132, 20);
+            this.tbCellulare.TabIndex = 69;
+            // 
+            // pulisci_filtri_btn
+            // 
+            this.pulisci_filtri_btn.Location = new System.Drawing.Point(7, 586);
+            this.pulisci_filtri_btn.Name = "pulisci_filtri_btn";
+            this.pulisci_filtri_btn.Size = new System.Drawing.Size(131, 23);
+            this.pulisci_filtri_btn.TabIndex = 75;
+            this.pulisci_filtri_btn.Text = "Pulisci filtri";
+            this.pulisci_filtri_btn.UseVisualStyleBackColor = true;
+            this.pulisci_filtri_btn.Click += new System.EventHandler(this.pulisci_filtri_btn_Click);
             // 
             // Form1
             // 
@@ -760,7 +859,17 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox tbSezioneF;
         private System.Windows.Forms.TextBox tbCognomeF;
         private System.Windows.Forms.Button annullla_btn;
-        private System.Windows.Forms.Button filtri_btn;
+        private System.Windows.Forms.Button applica_filtri_btn;
+        private System.Windows.Forms.TextBox tbMailF;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox tbMail;
+        private System.Windows.Forms.TextBox tbCellulareF;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox tbCellulare;
+        private System.Windows.Forms.TextBox tbTelefonoF;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox tbTelefono;
+        private System.Windows.Forms.Button pulisci_filtri_btn;
     }
 }
 

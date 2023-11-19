@@ -96,7 +96,8 @@ namespace WindowsFormsApp1
         }
         public void mostraFiltri()
         {
-            filtri_btn.Visible = true;
+            applica_filtri_btn.Visible = true;
+            pulisci_filtri_btn.Visible = true;
             tbNomeF.Visible = true;
             tbCognomeF.Visible = true;
             tbCodiceFiscaleF.Visible = true;
@@ -115,10 +116,14 @@ namespace WindowsFormsApp1
             tbDataPagamentoF.Visible = true;
             tbNumeroF.Visible = true;
             tbTipoF.Visible = true;
+            tbTelefonoF.Visible = true;
+            tbCellulareF.Visible = true;
+            tbMailF.Visible = true;
         }
         public void nascondiFiltri()
         {
-            filtri_btn.Visible = false;
+            applica_filtri_btn.Visible = false;
+            applica_filtri_btn.Visible = false;
             tbNomeF.Visible = false;
             tbCognomeF.Visible = false;
             tbCodiceFiscaleF.Visible = false;
@@ -137,6 +142,9 @@ namespace WindowsFormsApp1
             tbDataPagamentoF.Visible = false;
             tbNumeroF.Visible = false;
             tbTipoF.Visible = false;
+            tbTelefonoF.Visible = false;
+            tbCellulareF.Visible = false;
+            tbMailF.Visible = false;
         }
         public void addUser()
         {
@@ -161,6 +169,9 @@ namespace WindowsFormsApp1
             newUser.data_pagamento = tbDataPagamento.Text;
             newUser.numero = tbNumero.Text;
             newUser.tipo = tbTipo.Text;
+            newUser.telefono = tbTelefono.Text;
+            newUser.cellulare_whatsapp = tbCellulare.Text;
+            newUser.mail = tbMail.Text;
             users.Add(newUser);
 
             dataGridView1.DataSource = users;
@@ -187,6 +198,9 @@ namespace WindowsFormsApp1
                 row.Cells["data_pagamento"].Value = tbDataPagamento.Text;
                 row.Cells["numero"].Value = tbNumero.Text;
                 row.Cells["tipo"].Value = tbTipo.Text;
+                row.Cells["telefono"].Value = tbTelefono.Text;
+                row.Cells["cellulare_whatsapp"].Value = tbCellulare.Text;
+                row.Cells["mail"].Value = tbMail.Text;
             }
         }
 
@@ -234,6 +248,9 @@ namespace WindowsFormsApp1
                 tbDataPagamento.Text = row.Cells["data_pagamento"].Value.ToString();
                 tbNumero.Text = row.Cells["numero"].Value.ToString();
                 tbTipo.Text = row.Cells["tipo"].Value.ToString();
+                tbTelefono.Text = row.Cells["telefono"].Value.ToString();
+                tbCellulare.Text = row.Cells["cellulare_whatsapp"].Value.ToString();
+                tbMail.Text = row.Cells["mail"].Value.ToString();
             }
         }
 
@@ -268,6 +285,9 @@ namespace WindowsFormsApp1
             tbDataPagamento.Text = "";
             tbNumero.Text = "";
             tbTipo.Text = "";
+            tbTelefono.Text = "";
+            tbCellulare.Text = "";
+            tbMail.Text = "";
 
             this.mostraFiltri();
 
@@ -310,7 +330,10 @@ namespace WindowsFormsApp1
                     u.provincia.Contains(tbProvinciaF.Text) &&
                     u.data_pagamento.Contains(tbDataPagamentoF.Text) &&
                     u.numero.Contains(tbNumeroF.Text) &&
-                    u.tipo.Contains(tbTipoF.Text)
+                    u.tipo.Contains(tbTipoF.Text) &&
+                    u.telefono.Contains(tbTelefono.Text) &&
+                    u.cellulare_whatsapp.Contains(tbCellulareF.Text) &&
+                    u.mail.Contains(tbMailF.Text)
                 )
                 .ToList();
 
@@ -318,5 +341,32 @@ namespace WindowsFormsApp1
             dataGridView1.DataSource = utentiFiltrati;
         }
 
+        private void pulisci_filtri_btn_Click(object sender, EventArgs e)
+        {
+            tbNomeF.Text = "";
+            tbCognomeF.Text = "";
+            tbCodiceFiscaleF.Text = "";
+            tbDataDiNascitaF.Text = "";
+            tbDataRilascioPortoArmiF.Text = "";
+            tbNumeroPortoArmiF.Text = "";
+            tbCapNascitaF.Text = "";
+            tbComuneNascitaF.Text = "";
+            tbProvinciaNascitaF.Text = "";
+            tbIndirizzoResistenzaF.Text = "";
+            tbCapResistenzaF.Text = "";
+            tbComuneResidenzaF.Text = "";
+            tbProvinciaResistenzaF.Text = "";
+            tbSezioneF.Text = "";
+            tbProvinciaF.Text = "";
+            tbDataPagamentoF.Text = "";
+            tbNumeroF.Text = "";
+            tbTipoF.Text = "";
+            tbTelefonoF.Text = "";
+            tbCellulareF.Text = "";
+            tbMailF.Text = "";
+
+            dataGridView1.DataSource = sql.GetTempUser();
+
+        }
     }
 }
