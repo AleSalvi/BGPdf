@@ -2,6 +2,7 @@ using API.Helper;
 using API.Provider;
 using dto;
 using Microsoft.AspNetCore.Mvc;
+using System.Xml.Linq;
 
 namespace API.Controllers
 {
@@ -10,32 +11,39 @@ namespace API.Controllers
     public class UserController : ControllerBase
     {
         private readonly ILogger<UserController> _logger;
-        private userProvider _userMethods;
 
-        public UserController(ILogger<UserController> logger, userProvider userMethods)
+        public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
-            _userMethods = userMethods;
         }
 
-        [TokenAuthenticationFilter]
-        [HttpGet(Name = "getall")]
+        //[TokenAuthenticationFilter]
+        [HttpGet]
+        [Route("getall")]
         public List<User> getAll()
         {
+            userProvider _userMethods = new userProvider();
+
             return _userMethods.GetUsers();
         }
 
-        [TokenAuthenticationFilter]
-        [HttpGet(Name = "getbyuid")]
+        //[TokenAuthenticationFilter]
+        [HttpGet]
+        [Route("getbyuid")]
         public User getByUid(Guid Uid)
         {
+            userProvider _userMethods = new userProvider();
+
             return _userMethods.GetUserByUid(Uid);
         }
 
-        [TokenAuthenticationFilter]
-        [HttpPost(Name = "edit")]
-        public User edit(User user)
+        //[TokenAuthenticationFilter]
+        [HttpPost]
+        [Route("edit")]
+        public User edit([FromBody] User user)
         {
+            userProvider _userMethods = new userProvider();
+
             return _userMethods.EditUser(user);
         }
 

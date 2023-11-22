@@ -8,9 +8,9 @@ namespace API.Controllers
     [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
+        private readonly ILogger<LoginController> _logger;
 
-        public LoginController(ILogger<UserController> logger)
+        public LoginController(ILogger<LoginController> logger)
         {
             _logger = logger;
         }
@@ -25,7 +25,7 @@ namespace API.Controllers
             {
                 if (request.Username == "BGCacciaPescaAdministrator" && request.Password == "00CacciaEPesca00")
                 {
-                    String tk = SessionHelper.TokenHelper.GetNewToken(Guid.NewGuid()).Token;
+                    string tk = SessionHelper.TokenHelper.GetNewToken(Guid.NewGuid()).Token;
 
                     result = new LoginResponse()
                     {

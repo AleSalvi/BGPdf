@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         pdfManagment pdfManagment = new pdfManagment();
-        string rootAPI = "http://localhost:7076/";
+        string rootAPI = "https://localhost:7076/";
         string pdfSourcePath = "pdf\\source\\sourcePDF.pdf";
         bool annulla = false;
         string pdfResultPath;
@@ -61,14 +61,20 @@ namespace WindowsFormsApp1
 
             List<User> users = JsonConvert.DeserializeObject<List<User>>(responseBody);
 
+            var esitoDataNascita = DateTime.TryParse(tbDataDiNascitaF.Text, out DateTime resultDataNascita);
+            var esitoDataRilascio = DateTime.TryParse(tbDataRilascioPortoArmiF.Text, out DateTime resultDataRilascio);
+            var esitoDataPagamento = DateTime.TryParse(tbDataPagamentoF.Text, out DateTime resultDataPagamento);
+
+            var esitoNumero = Int16.TryParse(tbNumeroF.Text, out Int16 resultNumero);
+
             // Applica il filtro sulla lista
             List<User> utentiFiltrati = users
                 .Where(u =>
                     u.Nome.Contains(tbNomeF.Text) &&
                     u.Cognome.Contains(tbCognomeF.Text) &&
-                    u.Codice_fiscale.Contains(tbCodiceFiscaleF.Text) &&
-                    u.Data_nascita == Convert.ToDateTime(tbDataDiNascitaF.Text) &&
-                    u.Data_rilascio_porto_armi == Convert.ToDateTime(tbDataRilascioPortoArmiF.Text) &&
+                    u.CodiceFiscale.Contains(tbCodiceFiscaleF.Text) &&
+                    (!esitoDataNascita || resultDataNascita == u.Data_nascita) &&
+                    (!esitoDataRilascio || resultDataRilascio == u.Data_rilascio_porto_armi) &&
                     u.Numero_porto_armi.Contains(tbNumeroPortoArmiF.Text) &&
                     u.Cap_nascita.Contains(tbCapNascitaF.Text) &&
                     u.Comune_nascita.Contains(tbComuneNascitaF.Text) &&
@@ -78,9 +84,8 @@ namespace WindowsFormsApp1
                     u.Comune_residenza.Contains(tbComuneResidenzaF.Text) &&
                     u.Provincia_residenza.Contains(tbProvinciaResistenzaF.Text) &&
                     u.Sezione.Contains(tbSezioneF.Text) &&
-                    u.Provincia.Contains(tbProvinciaF.Text) &&
-                    u.Data_pagamento == Convert.ToDateTime(tbDataPagamentoF.Text) &&
-                    u.Numero.Contains(tbNumeroF.Text) &&
+                    (!esitoDataPagamento || resultDataPagamento == u.Data_pagamento) &&
+                    (!esitoNumero || resultNumero == u.Numero) &&
                     u.Tipo.Contains(tbTipoF.Text) &&
                     u.Telefono.Contains(tbTelefono.Text) &&
                     u.Cellulare_whatsapp.Contains(tbCellulareF.Text) &&
@@ -214,7 +219,7 @@ namespace WindowsFormsApp1
             newUser.Uid = new Guid(lbl_Uid.Text);
             newUser.Nome = tbNome.Text;
             newUser.Cognome = tbCognome.Text;
-            newUser.Codice_fiscale = tbCodiceFiscale.Text;
+            newUser.CodiceFiscale = tbCodiceFiscale.Text;
             newUser.Data_nascita = Convert.ToDateTime(tbDataDiNascita.Text);
             newUser.Data_rilascio_porto_armi = Convert.ToDateTime(tbDataRilascioPortoArmi.Text);
             newUser.Numero_porto_armi = tbNumeroPortoArmi.Text;
@@ -226,9 +231,8 @@ namespace WindowsFormsApp1
             newUser.Comune_residenza = tbComuneResidenza.Text;
             newUser.Provincia_residenza = tbProvinciaResistenza.Text;
             newUser.Sezione = tbSezione.Text;
-            newUser.Provincia = tbProvincia.Text;
             newUser.Data_pagamento = Convert.ToDateTime(tbDataPagamento.Text);
-            newUser.Numero = tbNumero.Text;
+            newUser.Numero = Convert.ToInt16(tbNumero.Text);
             newUser.Tipo = tbTipo.Text;
             newUser.Telefono = tbTelefono.Text;
             newUser.Cellulare_whatsapp = tbCellulare.Text;
@@ -276,7 +280,7 @@ namespace WindowsFormsApp1
                 lbl_Uid.Text = row.Cells["uid"].Value.ToString();
                 tbNome.Text = row.Cells["nome"].Value.ToString();
                 tbCognome.Text = row.Cells["cognome"].Value.ToString();
-                tbCodiceFiscale.Text = row.Cells["codice_fiscale"].Value.ToString();
+                tbCodiceFiscale.Text = row.Cells["CodiceFiscale"].Value.ToString();
                 tbDataDiNascita.Text = row.Cells["data_nascita"].Value.ToString();
                 tbDataRilascioPortoArmi.Text = row.Cells["data_rilascio_porto_armi"].Value.ToString();
                 tbNumeroPortoArmi.Text = row.Cells["numero_porto_armi"].Value.ToString();
@@ -288,7 +292,6 @@ namespace WindowsFormsApp1
                 tbComuneResidenza.Text = row.Cells["comune_residenza"].Value.ToString();
                 tbProvinciaResistenza.Text = row.Cells["provincia_residenza"].Value.ToString();
                 tbSezione.Text = row.Cells["sezione"].Value.ToString();
-                tbProvincia.Text = row.Cells["provincia"].Value.ToString();
                 tbDataPagamento.Text = row.Cells["data_pagamento"].Value.ToString();
                 tbNumero.Text = row.Cells["numero"].Value.ToString();
                 tbTipo.Text = row.Cells["tipo"].Value.ToString();
