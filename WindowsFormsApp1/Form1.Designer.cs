@@ -36,7 +36,17 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pulisci_filtri_btn = new System.Windows.Forms.Button();
+            this.tbMailF = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tbMail = new System.Windows.Forms.TextBox();
+            this.tbCellulareF = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tbCellulare = new System.Windows.Forms.TextBox();
             this.applica_filtri_btn = new System.Windows.Forms.Button();
+            this.tbTelefonoF = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbTelefono = new System.Windows.Forms.TextBox();
             this.annullla_btn = new System.Windows.Forms.Button();
             this.tbNomeF = new System.Windows.Forms.TextBox();
             this.tbProvinciaNascitaF = new System.Windows.Forms.TextBox();
@@ -94,16 +104,7 @@ namespace WindowsFormsApp1
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.editUser_btn = new System.Windows.Forms.Button();
             this.pdf1 = new System.Windows.Forms.Button();
-            this.tbTelefonoF = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tbTelefono = new System.Windows.Forms.TextBox();
-            this.tbMailF = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.tbMail = new System.Windows.Forms.TextBox();
-            this.tbCellulareF = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.tbCellulare = new System.Windows.Forms.TextBox();
-            this.pulisci_filtri_btn = new System.Windows.Forms.Button();
+            this.lbl_Uid = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -152,6 +153,7 @@ namespace WindowsFormsApp1
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbl_Uid);
             this.panel1.Controls.Add(this.pulisci_filtri_btn);
             this.panel1.Controls.Add(this.tbMailF);
             this.panel1.Controls.Add(this.label21);
@@ -225,6 +227,62 @@ namespace WindowsFormsApp1
             this.panel1.Size = new System.Drawing.Size(303, 620);
             this.panel1.TabIndex = 9;
             // 
+            // pulisci_filtri_btn
+            // 
+            this.pulisci_filtri_btn.Location = new System.Drawing.Point(7, 586);
+            this.pulisci_filtri_btn.Name = "pulisci_filtri_btn";
+            this.pulisci_filtri_btn.Size = new System.Drawing.Size(131, 23);
+            this.pulisci_filtri_btn.TabIndex = 75;
+            this.pulisci_filtri_btn.Text = "Pulisci filtri";
+            this.pulisci_filtri_btn.UseVisualStyleBackColor = true;
+            this.pulisci_filtri_btn.Click += new System.EventHandler(this.pulisci_filtri_btn_Click);
+            // 
+            // tbMailF
+            // 
+            this.tbMailF.Location = new System.Drawing.Point(158, 556);
+            this.tbMailF.Name = "tbMailF";
+            this.tbMailF.Size = new System.Drawing.Size(132, 20);
+            this.tbMailF.TabIndex = 74;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(148, 540);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(29, 13);
+            this.label21.TabIndex = 73;
+            this.label21.Text = "Mail:";
+            // 
+            // tbMail
+            // 
+            this.tbMail.Location = new System.Drawing.Point(152, 556);
+            this.tbMail.Name = "tbMail";
+            this.tbMail.Size = new System.Drawing.Size(132, 20);
+            this.tbMail.TabIndex = 72;
+            // 
+            // tbCellulareF
+            // 
+            this.tbCellulareF.Location = new System.Drawing.Point(13, 556);
+            this.tbCellulareF.Name = "tbCellulareF";
+            this.tbCellulareF.Size = new System.Drawing.Size(132, 20);
+            this.tbCellulareF.TabIndex = 71;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(3, 540);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(99, 13);
+            this.label22.TabIndex = 70;
+            this.label22.Text = "Cellulare whatsapp:";
+            // 
+            // tbCellulare
+            // 
+            this.tbCellulare.Location = new System.Drawing.Point(7, 556);
+            this.tbCellulare.Name = "tbCellulare";
+            this.tbCellulare.Size = new System.Drawing.Size(132, 20);
+            this.tbCellulare.TabIndex = 69;
+            // 
             // applica_filtri_btn
             // 
             this.applica_filtri_btn.Location = new System.Drawing.Point(153, 586);
@@ -234,6 +292,29 @@ namespace WindowsFormsApp1
             this.applica_filtri_btn.Text = "Applica filtri";
             this.applica_filtri_btn.UseVisualStyleBackColor = true;
             this.applica_filtri_btn.Click += new System.EventHandler(this.filtri_btn_Click);
+            // 
+            // tbTelefonoF
+            // 
+            this.tbTelefonoF.Location = new System.Drawing.Point(159, 519);
+            this.tbTelefonoF.Name = "tbTelefonoF";
+            this.tbTelefonoF.Size = new System.Drawing.Size(132, 20);
+            this.tbTelefonoF.TabIndex = 68;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(149, 503);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(52, 13);
+            this.label20.TabIndex = 67;
+            this.label20.Text = "Telefono:";
+            // 
+            // tbTelefono
+            // 
+            this.tbTelefono.Location = new System.Drawing.Point(153, 519);
+            this.tbTelefono.Name = "tbTelefono";
+            this.tbTelefono.Size = new System.Drawing.Size(132, 20);
+            this.tbTelefono.TabIndex = 66;
             // 
             // annullla_btn
             // 
@@ -689,84 +770,15 @@ namespace WindowsFormsApp1
             this.pdf1.Text = "Create Pdf";
             this.pdf1.UseVisualStyleBackColor = true;
             // 
-            // tbTelefonoF
+            // lbl_Uid
             // 
-            this.tbTelefonoF.Location = new System.Drawing.Point(159, 519);
-            this.tbTelefonoF.Name = "tbTelefonoF";
-            this.tbTelefonoF.Size = new System.Drawing.Size(132, 20);
-            this.tbTelefonoF.TabIndex = 68;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(149, 503);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(52, 13);
-            this.label20.TabIndex = 67;
-            this.label20.Text = "Telefono:";
-            // 
-            // tbTelefono
-            // 
-            this.tbTelefono.Location = new System.Drawing.Point(153, 519);
-            this.tbTelefono.Name = "tbTelefono";
-            this.tbTelefono.Size = new System.Drawing.Size(132, 20);
-            this.tbTelefono.TabIndex = 66;
-            // 
-            // tbMailF
-            // 
-            this.tbMailF.Location = new System.Drawing.Point(158, 556);
-            this.tbMailF.Name = "tbMailF";
-            this.tbMailF.Size = new System.Drawing.Size(132, 20);
-            this.tbMailF.TabIndex = 74;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(148, 540);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(29, 13);
-            this.label21.TabIndex = 73;
-            this.label21.Text = "Mail:";
-            // 
-            // tbMail
-            // 
-            this.tbMail.Location = new System.Drawing.Point(152, 556);
-            this.tbMail.Name = "tbMail";
-            this.tbMail.Size = new System.Drawing.Size(132, 20);
-            this.tbMail.TabIndex = 72;
-            // 
-            // tbCellulareF
-            // 
-            this.tbCellulareF.Location = new System.Drawing.Point(13, 556);
-            this.tbCellulareF.Name = "tbCellulareF";
-            this.tbCellulareF.Size = new System.Drawing.Size(132, 20);
-            this.tbCellulareF.TabIndex = 71;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 540);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(99, 13);
-            this.label22.TabIndex = 70;
-            this.label22.Text = "Cellulare whatsapp:";
-            // 
-            // tbCellulare
-            // 
-            this.tbCellulare.Location = new System.Drawing.Point(7, 556);
-            this.tbCellulare.Name = "tbCellulare";
-            this.tbCellulare.Size = new System.Drawing.Size(132, 20);
-            this.tbCellulare.TabIndex = 69;
-            // 
-            // pulisci_filtri_btn
-            // 
-            this.pulisci_filtri_btn.Location = new System.Drawing.Point(7, 586);
-            this.pulisci_filtri_btn.Name = "pulisci_filtri_btn";
-            this.pulisci_filtri_btn.Size = new System.Drawing.Size(131, 23);
-            this.pulisci_filtri_btn.TabIndex = 75;
-            this.pulisci_filtri_btn.Text = "Pulisci filtri";
-            this.pulisci_filtri_btn.UseVisualStyleBackColor = true;
-            this.pulisci_filtri_btn.Click += new System.EventHandler(this.pulisci_filtri_btn_Click);
+            this.lbl_Uid.AutoSize = true;
+            this.lbl_Uid.Location = new System.Drawing.Point(67, 19);
+            this.lbl_Uid.Name = "lbl_Uid";
+            this.lbl_Uid.Size = new System.Drawing.Size(21, 13);
+            this.lbl_Uid.TabIndex = 76;
+            this.lbl_Uid.Text = "uid";
+            this.lbl_Uid.Visible = false;
             // 
             // Form1
             // 
@@ -870,6 +882,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox tbTelefono;
         private System.Windows.Forms.Button pulisci_filtri_btn;
+        private System.Windows.Forms.Label lbl_Uid;
     }
 }
 

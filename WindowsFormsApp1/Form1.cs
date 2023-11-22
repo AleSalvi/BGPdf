@@ -1,32 +1,94 @@
-﻿using System;
+﻿using dto;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Security.Policy;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using UglyToad.PdfPig;
 using UglyToad.PdfPig.Content;
 using UglyToad.PdfPig.Fonts.Standard14Fonts;
 using UglyToad.PdfPig.Writer;
+using static System.Net.WebRequestMethods;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        DbCrud sql = new DbCrud();
         pdfManagment pdfManagment = new pdfManagment();
-        List<User> users;
+        string rootAPI = "http://localhost:7076/";
         string pdfSourcePath = "pdf\\source\\sourcePDF.pdf";
         bool annulla = false;
         string pdfResultPath;
+        HttpClient client = new HttpClient();
+        string token;
 
         public Form1()
         {
             InitializeComponent();
-            //sql.OpenSqlConnection();
         }
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = sql.GetTempUser();
+            await LoginAPI();
+            await ReloadGrid();
+        }
+
+        public async Task LoginAPI()
+        {
+            var json = JsonConvert.SerializeObject(new LoginRequest() { Username = "BGCacciaPescaAdministrator", Password = "00CacciaEPesca00" });
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            using HttpResponseMessage response = await client.PostAsync(rootAPI + "login/authenticate", data);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(responseBody);
+            token = loginResponse.Token;
+        }
+
+        public async Task ReloadGrid()
+        {
+            var msg = new HttpRequestMessage(HttpMethod.Get, rootAPI + "user/getall");
+            msg.Headers.Add("X-AUTH", token);
+
+            using HttpResponseMessage response = await client.SendAsync(msg);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(responseBody);
+
+            // Applica il filtro sulla lista
+            List<User> utentiFiltrati = users
+                .Where(u =>
+                    u.Nome.Contains(tbNomeF.Text) &&
+                    u.Cognome.Contains(tbCognomeF.Text) &&
+                    u.Codice_fiscale.Contains(tbCodiceFiscaleF.Text) &&
+                    u.Data_nascita == Convert.ToDateTime(tbDataDiNascitaF.Text) &&
+                    u.Data_rilascio_porto_armi == Convert.ToDateTime(tbDataRilascioPortoArmiF.Text) &&
+                    u.Numero_porto_armi.Contains(tbNumeroPortoArmiF.Text) &&
+                    u.Cap_nascita.Contains(tbCapNascitaF.Text) &&
+                    u.Comune_nascita.Contains(tbComuneNascitaF.Text) &&
+                    u.Provincia_nascita.Contains(tbProvinciaNascitaF.Text) &&
+                    u.Indirizzo_residenza.Contains(tbIndirizzoResistenzaF.Text) &&
+                    u.Cap_residenza.Contains(tbCapResistenzaF.Text) &&
+                    u.Comune_residenza.Contains(tbComuneResidenzaF.Text) &&
+                    u.Provincia_residenza.Contains(tbProvinciaResistenzaF.Text) &&
+                    u.Sezione.Contains(tbSezioneF.Text) &&
+                    u.Provincia.Contains(tbProvinciaF.Text) &&
+                    u.Data_pagamento == Convert.ToDateTime(tbDataPagamentoF.Text) &&
+                    u.Numero.Contains(tbNumeroF.Text) &&
+                    u.Tipo.Contains(tbTipoF.Text) &&
+                    u.Telefono.Contains(tbTelefono.Text) &&
+                    u.Cellulare_whatsapp.Contains(tbCellulareF.Text) &&
+                    u.Mail.Contains(tbMailF.Text)
+                )
+                .ToList();
+
+            dataGridView1.DataSource = utentiFiltrati;
         }
 
         private void btnCreatePdf_Click(object sender, EventArgs e)
@@ -90,7 +152,7 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            File.WriteAllBytes(pdfResultPath, builder.Build());
+            System.IO.File.WriteAllBytes(pdfResultPath, builder.Build());
 
             MessageBox.Show("File creato!");
         }
@@ -146,62 +208,43 @@ namespace WindowsFormsApp1
             tbCellulareF.Visible = false;
             tbMailF.Visible = false;
         }
-        public void addUser()
+        public async void editUser()
         {
-            users = sql.GetTempUser();
-
             User newUser = new User();
-            newUser.nome = tbNome.Text;
-            newUser.cognome = tbCognome.Text;
-            newUser.codice_fiscale = tbCodiceFiscale.Text;
-            newUser.data_nascita = tbDataDiNascita.Text;
-            newUser.data_rilascio_porto_armi = tbDataRilascioPortoArmi.Text;
-            newUser.numero_porto_armi = tbNumeroPortoArmi.Text;
-            newUser.cap_nascita = tbCapNascita.Text;
-            newUser.comune_nascita = tbComuneNascita.Text;
-            newUser.provincia_nascita = tbProvinciaNascita.Text;
-            newUser.indirizzo_residenza = tbIndirizzoResistenza.Text;
-            newUser.cap_residenza = tbCapResistenza.Text;
-            newUser.comune_residenza = tbComuneResidenza.Text;
-            newUser.provincia_residenza = tbProvinciaResistenza.Text;
-            newUser.sezione = tbSezione.Text;
-            newUser.provincia = tbProvincia.Text;
-            newUser.data_pagamento = tbDataPagamento.Text;
-            newUser.numero = tbNumero.Text;
-            newUser.tipo = tbTipo.Text;
-            newUser.telefono = tbTelefono.Text;
-            newUser.cellulare_whatsapp = tbCellulare.Text;
-            newUser.mail = tbMail.Text;
-            users.Add(newUser);
+            newUser.Uid = new Guid(lbl_Uid.Text);
+            newUser.Nome = tbNome.Text;
+            newUser.Cognome = tbCognome.Text;
+            newUser.Codice_fiscale = tbCodiceFiscale.Text;
+            newUser.Data_nascita = Convert.ToDateTime(tbDataDiNascita.Text);
+            newUser.Data_rilascio_porto_armi = Convert.ToDateTime(tbDataRilascioPortoArmi.Text);
+            newUser.Numero_porto_armi = tbNumeroPortoArmi.Text;
+            newUser.Cap_nascita = tbCapNascita.Text;
+            newUser.Comune_nascita = tbComuneNascita.Text;
+            newUser.Provincia_nascita = tbProvinciaNascita.Text;
+            newUser.Indirizzo_residenza = tbIndirizzoResistenza.Text;
+            newUser.Cap_residenza = tbCapResistenza.Text;
+            newUser.Comune_residenza = tbComuneResidenza.Text;
+            newUser.Provincia_residenza = tbProvinciaResistenza.Text;
+            newUser.Sezione = tbSezione.Text;
+            newUser.Provincia = tbProvincia.Text;
+            newUser.Data_pagamento = Convert.ToDateTime(tbDataPagamento.Text);
+            newUser.Numero = tbNumero.Text;
+            newUser.Tipo = tbTipo.Text;
+            newUser.Telefono = tbTelefono.Text;
+            newUser.Cellulare_whatsapp = tbCellulare.Text;
+            newUser.Mail = tbMail.Text;
 
-            dataGridView1.DataSource = users;
-        }
-        public void editUser()
-        {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-            {
-                row.Cells["nome"].Value = tbNome.Text;
-                row.Cells["cognome"].Value = tbCognome.Text;
-                row.Cells["codice_fiscale"].Value = tbCodiceFiscale.Text;
-                row.Cells["data_nascita"].Value = tbDataDiNascita.Text;
-                row.Cells["data_rilascio_porto_armi"].Value = tbDataRilascioPortoArmi.Text;
-                row.Cells["numero_porto_armi"].Value = tbNumeroPortoArmi.Text;
-                row.Cells["cap_nascita"].Value = tbCapNascita.Text;
-                row.Cells["comune_nascita"].Value = tbComuneNascita.Text;
-                row.Cells["provincia_nascita"].Value = tbProvinciaNascita.Text;
-                row.Cells["indirizzo_residenza"].Value = tbIndirizzoResistenza.Text;
-                row.Cells["cap_residenza"].Value = tbCapResistenza.Text;
-                row.Cells["comune_residenza"].Value = tbComuneResidenza.Text;
-                row.Cells["provincia_residenza"].Value = tbProvinciaResistenza.Text;
-                row.Cells["sezione"].Value = tbSezione.Text;
-                row.Cells["provincia"].Value = tbProvincia.Text;
-                row.Cells["data_pagamento"].Value = tbDataPagamento.Text;
-                row.Cells["numero"].Value = tbNumero.Text;
-                row.Cells["tipo"].Value = tbTipo.Text;
-                row.Cells["telefono"].Value = tbTelefono.Text;
-                row.Cells["cellulare_whatsapp"].Value = tbCellulare.Text;
-                row.Cells["mail"].Value = tbMail.Text;
-            }
+            var json = JsonConvert.SerializeObject(newUser);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var msg = new HttpRequestMessage(HttpMethod.Post, rootAPI + "user/edit");
+            msg.Headers.Add("X-AUTH", token);
+            msg.Content = data;
+
+            using HttpResponseMessage response = await client.SendAsync(msg);
+            response.EnsureSuccessStatusCode();
+
+            await ReloadGrid();
         }
 
         private void addUser_btn_Click(object sender, EventArgs e)
@@ -210,7 +253,7 @@ namespace WindowsFormsApp1
             this.label10.Text = "Nuovo utente";
 
             this.nascondiFiltri();
-            
+
             this.addUser_btn.Enabled = false;
             this.editUser_btn.Enabled = false;
             this.saveUser_btn.Visible = true;
@@ -223,13 +266,14 @@ namespace WindowsFormsApp1
             this.label10.Text = "Modifica utente";
 
             this.nascondiFiltri();
-            
+
             this.addUser_btn.Enabled = false;
             this.editUser_btn.Enabled = false;
             this.saveUser_btn.Visible = true;
             this.annullla_btn.Visible = true;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
+                lbl_Uid.Text = row.Cells["uid"].Value.ToString();
                 tbNome.Text = row.Cells["nome"].Value.ToString();
                 tbCognome.Text = row.Cells["cognome"].Value.ToString();
                 tbCodiceFiscale.Text = row.Cells["codice_fiscale"].Value.ToString();
@@ -258,15 +302,10 @@ namespace WindowsFormsApp1
         {
             if (annulla == false)
             {
-                if (this.editUser_btn.Enabled == true)
-                {
-                    editUser();
-                }
-                else
-                {
-                    addUser();
-                }
+                editUser();
             }
+
+            lbl_Uid.Text = "";
             tbNome.Text = "";
             tbCognome.Text = "";
             tbCodiceFiscale.Text = "";
@@ -306,43 +345,14 @@ namespace WindowsFormsApp1
             saveUser_btn.PerformClick();
         }
 
-        private void filtri_btn_Click(object sender, EventArgs e)
+        private async void filtri_btn_Click(object sender, EventArgs e)
         {
-            List<User> users = sql.GetTempUser();
-
-            // Applica il filtro sulla lista
-            List<User> utentiFiltrati = users
-                .Where(u =>
-                    u.nome.Contains(tbNomeF.Text) &&
-                    u.cognome.Contains(tbCognomeF.Text) &&
-                    u.codice_fiscale.Contains(tbCodiceFiscaleF.Text) &&
-                    u.data_nascita.Contains(tbDataDiNascitaF.Text) &&
-                    u.data_rilascio_porto_armi.Contains(tbDataRilascioPortoArmiF.Text) &&
-                    u.numero_porto_armi.Contains(tbNumeroPortoArmiF.Text) &&
-                    u.cap_nascita.Contains(tbCapNascitaF.Text) &&
-                    u.comune_nascita.Contains(tbComuneNascitaF.Text) &&
-                    u.provincia_nascita.Contains(tbProvinciaNascitaF.Text) &&
-                    u.indirizzo_residenza.Contains(tbIndirizzoResistenzaF.Text) &&
-                    u.cap_residenza.Contains(tbCapResistenzaF.Text) &&
-                    u.comune_residenza.Contains(tbComuneResidenzaF.Text) &&
-                    u.provincia_residenza.Contains(tbProvinciaResistenzaF.Text) &&
-                    u.sezione.Contains(tbSezioneF.Text) &&
-                    u.provincia.Contains(tbProvinciaF.Text) &&
-                    u.data_pagamento.Contains(tbDataPagamentoF.Text) &&
-                    u.numero.Contains(tbNumeroF.Text) &&
-                    u.tipo.Contains(tbTipoF.Text) &&
-                    u.telefono.Contains(tbTelefono.Text) &&
-                    u.cellulare_whatsapp.Contains(tbCellulareF.Text) &&
-                    u.mail.Contains(tbMailF.Text)
-                )
-                .ToList();
-
-            // Assegna la lista filtrata al DataGridView
-            dataGridView1.DataSource = utentiFiltrati;
+            await ReloadGrid();
         }
 
-        private void pulisci_filtri_btn_Click(object sender, EventArgs e)
+        private async void pulisci_filtri_btn_Click(object sender, EventArgs e)
         {
+            lbl_Uid.Text = "";
             tbNomeF.Text = "";
             tbCognomeF.Text = "";
             tbCodiceFiscaleF.Text = "";
@@ -365,7 +375,7 @@ namespace WindowsFormsApp1
             tbCellulareF.Text = "";
             tbMailF.Text = "";
 
-            dataGridView1.DataSource = sql.GetTempUser();
+            await ReloadGrid();
 
         }
     }
