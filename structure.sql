@@ -25,37 +25,36 @@ CREATE TABLE [dbo].[Users](
 	,[UserUpdate] VARCHAR(50) NOT NULL  DEFAULT (suser_sname())
 	,[TimeInsert] DATETIME NOT NULL DEFAULT (getdate())
 	,[TimeUpdate] DATETIME NOT NULL DEFAULT (getdate())
- CONSTRAINT [PK_Users] PRIMARY KEY NONCLUSTERED 
-(
-	[Uid] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
- CONSTRAINT [IK_Users] UNIQUE CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-
+CONSTRAINT [PK_Users] PRIMARY KEY NONCLUSTERED 
+	(
+		[Uid] ASC
+	),
+	 CONSTRAINT [IK_Users] UNIQUE CLUSTERED 
+	(
+		[Id] ASC
+	)
+)
 CREATE PROCEDURE [dbo].[Api_Users_Edit]
 	@Uid uniqueidentifier
 	,@Nome  VARCHAR(255)
 	,@Cognome  VARCHAR(255) 
-	,@CodiceFiscale  VARCHAR(16)
+	,@CodiceFiscale  VARCHAR(255)
 	,@Data_nascita  DATETIME 
-	,@Cap_nascita  VARCHAR(5) 
+	,@Cap_nascita  VARCHAR(255) 
 	,@Comune_nascita  VARCHAR(255)
-	,@Provincia_nascita  VARCHAR(2) 
+	,@Provincia_nascita  VARCHAR(255) 
 	,@Indirizzo_residenza  VARCHAR(255)
-	,@Cap_residenza  VARCHAR(5) 
+	,@Cap_residenza  VARCHAR(255) 
 	,@Comune_residenza  VARCHAR(255) 
-	,@Provincia_residenza  VARCHAR(2)
+	,@Provincia_residenza  VARCHAR(255)
 	,@Numero_porto_armi  VARCHAR(255)
 	,@Data_rilascio_porto_armi  DATETIME 
-	,@Sezione  VARCHAR(1) 
+	,@Sezione  VARCHAR(255) 
 	,@Data_pagamento  DATETIME 
 	,@Numero  INT 
 	,@Tipo  VARCHAR(255) 
-	,@Telefono  VARCHAR(20) 
-	,@Cellulare_whatsapp  VARCHAR(20)
+	,@Telefono  VARCHAR(255) 
+	,@Cellulare_whatsapp  VARCHAR(255)
 	,@Mail  VARCHAR(255) 
 AS
 BEGIN	
