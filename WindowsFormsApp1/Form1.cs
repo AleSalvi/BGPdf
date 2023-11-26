@@ -2,10 +2,8 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,14 +11,13 @@ using UglyToad.PdfPig;
 using UglyToad.PdfPig.Content;
 using UglyToad.PdfPig.Fonts.Standard14Fonts;
 using UglyToad.PdfPig.Writer;
-using static System.Net.WebRequestMethods;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
         pdfManagment pdfManagment = new pdfManagment();
-        string rootAPI = "https://localhost:7076/";
+        string rootAPI = "https://localhost:44336/api/";
         string pdfSourcePath = "pdf\\source\\sourcePDF.pdf";
         bool annulla = false;
         string pdfResultPath;
@@ -94,6 +91,8 @@ namespace WindowsFormsApp1
                 .ToList();
 
             dataGridView1.DataSource = utentiFiltrati;
+
+            dataGridView1.Columns["Uid"].Visible = false;
         }
 
         private void btnCreatePdf_Click(object sender, EventArgs e)
@@ -112,7 +111,6 @@ namespace WindowsFormsApp1
                 {
                     foreach (Page sourcePage in source.GetPages())
                     {
-                        //.AddPage() -> impostando isPortrait : false, imposti il foglio orizzontale
                         PdfPageBuilder resultPage = builder.AddPage(source, sourcePage.Number);
 
                         if (sourcePage.Number == 1)
