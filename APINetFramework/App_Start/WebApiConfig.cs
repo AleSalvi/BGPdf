@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNet.WebApi.Extensions.Compression.Server;
-using Newtonsoft.Json.Serialization;
-using System.Diagnostics;
-using System.Net.Http.Extensions.Compression.Core.Compressors;
+﻿using Newtonsoft.Json.Serialization;
 using System.Web.Http;
 using System.Web.Http.Routing;
 
@@ -32,7 +29,7 @@ namespace APINetFramework
             config.Formatters.JsonFormatter.SerializerSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
             config.Formatters.JsonFormatter.SerializerSettings.DateFormatString = "yyyy-MM-ddTHH:mm:ssK";
 
-            config.MessageHandlers.Insert(0, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
+            //config.MessageHandlers.Insert(0, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
         }
     }
 }

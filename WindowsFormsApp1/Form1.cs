@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -17,8 +18,9 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         pdfManagment pdfManagment = new pdfManagment();
-        string rootAPI = "https://localhost:44336/api/";
-        string pdfSourcePath = "pdf\\source\\sourcePDF.pdf";
+        string rootAPI = ConfigurationManager.AppSettings["API_Root"];
+        string pdfSourcePath = ConfigurationManager.AppSettings["PDF_SourcePath"];
+
         bool annulla = false;
         string pdfResultPath;
         HttpClient client = new HttpClient();
@@ -28,6 +30,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
         private async void Form1_Load(object sender, EventArgs e)
         {
             await LoginAPI();
@@ -36,7 +39,7 @@ namespace WindowsFormsApp1
 
         public async Task LoginAPI()
         {
-            var json = JsonConvert.SerializeObject(new LoginRequest() { Username = "BGCacciaPescaAdministrator", Password = "00CacciaEPesca00" });
+            var json = JsonConvert.SerializeObject(new LoginRequest() { Username = ConfigurationManager.AppSettings["API_loginUsername"], Password = ConfigurationManager.AppSettings["API_loginPassword"] });
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
             using HttpResponseMessage response = await client.PostAsync(rootAPI + "login/authenticate", data);
@@ -99,7 +102,7 @@ namespace WindowsFormsApp1
         {
             //users = sql.GetTempUser();
 
-            pdfResultPath = "pdf\\result\\compiledPDF.pdf";
+            pdfResultPath = ConfigurationManager.AppSettings["PDF_ResultPath"];
 
             PdfDocumentBuilder builder = new PdfDocumentBuilder();
 

@@ -1,15 +1,15 @@
 ﻿using dto;
-using System.Data.SqlClient;
-using System.Data;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace API.Provider
 {
     public class userProvider
     {
-        public string ConnectionString = "Data Source=PC-DAVIIMUSE\\MSSQLSERVER01;Initial Catalog=DB_pdf;Integrated Security=SSPI;";
-        //public string ConnectionString = "Data Source=62.149.153.61;Initial Catalog=MSSql212815;Integrated Security=False;User ID=MSSql212815;Connect Timeout=0;Encrypt=False;Packet Size=4096";
+        public string ConnectionString = ConfigurationManager.ConnectionStrings["SqlDataContext"].ConnectionString;
 
         public User User = new User();
 

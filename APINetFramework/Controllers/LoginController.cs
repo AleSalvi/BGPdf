@@ -1,6 +1,7 @@
 ﻿using APINetFramework.Helper;
 using dto;
 using System;
+using System.Configuration;
 using System.Web.Http;
 
 namespace APINetFramework.Controllers
@@ -15,7 +16,7 @@ namespace APINetFramework.Controllers
 
             try
             {
-                if (request.Username == "BGCacciaPescaAdministrator" && request.Password == "00CacciaEPesca00")
+                if (request.Username == ConfigurationManager.AppSettings["API_loginUsername"] && request.Password == ConfigurationManager.AppSettings["API_loginPassword"])
                 {
                     TokenHelper tk = TokenHelper.GetNewToken(Guid.NewGuid());
 
