@@ -162,6 +162,10 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="dto\HeaderToken.cs" />
+    <Compile Include="dto\LoginRequest.cs" />
+    <Compile Include="dto\LoginResponse.cs" />
+    <Compile Include="dto\user.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -313,12 +317,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\dto\dto.csproj">
-      <Project>{F699F22A-FF8E-4C99-AE92-AF2120CBBFD3}</Project>
-      <Name>dto</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
