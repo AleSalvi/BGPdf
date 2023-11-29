@@ -39,5 +39,17 @@ namespace APINetFramework.Helper
             return _userMethods.EditUser(user);
         }
 
+        [TokenAuthenticationFilter]
+        [HttpPost]
+        [Route("api/user/delete")]
+        public bool delete([FromBody] Guid Uid)
+        {
+            userProvider _userMethods = new userProvider();
+
+            _userMethods.DeleteUser(Uid);
+
+            return true;
+        }
+
     }
 }

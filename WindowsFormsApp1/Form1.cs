@@ -294,6 +294,26 @@ namespace WindowsFormsApp1
 
             await ReloadGrid();
         }
+
+        public async void deleteUser()
+        {
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                var uid = row.Cells["Uid"].Value;
+
+                var json = JsonConvert.SerializeObject(uid);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var msg = new HttpRequestMessage(HttpMethod.Post, rootAPI + "user/delete");
+                msg.Headers.Add("X-AUTH", token);
+                msg.Content = data;
+
+                using HttpResponseMessage response = await client.SendAsync(msg);
+                response.EnsureSuccessStatusCode();
+            }
+
+            await ReloadGrid();
+        }
         private void addUser_btn_Click(object sender, EventArgs e)
         {
 
@@ -433,6 +453,11 @@ namespace WindowsFormsApp1
             this.addUser_btn.Enabled = true;
             this.editUser_btn.Enabled = true;
 
+        }
+
+        private async void deleteUser_btn_Click(object sender, EventArgs e)
+        {
+            deleteUser();
         }
     }
 }

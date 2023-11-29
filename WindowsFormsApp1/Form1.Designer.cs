@@ -105,6 +105,7 @@ namespace WindowsFormsApp1
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.editUser_btn = new System.Windows.Forms.Button();
             this.pdf1 = new System.Windows.Forms.Button();
+            this.deleteUser_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -742,7 +743,7 @@ namespace WindowsFormsApp1
             // 
             // addUser_btn
             // 
-            this.addUser_btn.Location = new System.Drawing.Point(371, 609);
+            this.addUser_btn.Location = new System.Drawing.Point(209, 609);
             this.addUser_btn.Name = "addUser_btn";
             this.addUser_btn.Size = new System.Drawing.Size(155, 23);
             this.addUser_btn.TabIndex = 10;
@@ -763,7 +764,7 @@ namespace WindowsFormsApp1
             // 
             // editUser_btn
             // 
-            this.editUser_btn.Location = new System.Drawing.Point(532, 609);
+            this.editUser_btn.Location = new System.Drawing.Point(370, 609);
             this.editUser_btn.Name = "editUser_btn";
             this.editUser_btn.Size = new System.Drawing.Size(145, 23);
             this.editUser_btn.TabIndex = 12;
@@ -780,11 +781,22 @@ namespace WindowsFormsApp1
             this.pdf1.Text = "Create Pdf";
             this.pdf1.UseVisualStyleBackColor = true;
             // 
+            // deleteUser_btn
+            // 
+            this.deleteUser_btn.Location = new System.Drawing.Point(522, 609);
+            this.deleteUser_btn.Name = "deleteUser_btn";
+            this.deleteUser_btn.Size = new System.Drawing.Size(155, 23);
+            this.deleteUser_btn.TabIndex = 15;
+            this.deleteUser_btn.Text = "Elimina utente";
+            this.deleteUser_btn.UseVisualStyleBackColor = true;
+            this.deleteUser_btn.Click += new System.EventHandler(this.deleteUser_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 644);
+            this.Controls.Add(this.deleteUser_btn);
             this.Controls.Add(this.pdf1);
             this.Controls.Add(this.editUser_btn);
             this.Controls.Add(this.dataGridView1);
@@ -883,6 +895,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox tbTelefono;
         private System.Windows.Forms.Button pulisci_filtri_btn;
         private System.Windows.Forms.Label lbl_Uid;
+        private System.Windows.Forms.Button deleteUser_btn;
     }
 }
 
