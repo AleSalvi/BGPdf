@@ -65,7 +65,7 @@ namespace WindowsFormsApp1
             var esitoDataRilascio = DateTime.TryParse(tbDataRilascioPortoArmiF.Text, out DateTime resultDataRilascio);
             var esitoDataPagamento = DateTime.TryParse(tbDataPagamentoF.Text, out DateTime resultDataPagamento);
 
-            var esitoNumero = Int16.TryParse(tbNumeroF.Text, out Int16 resultNumero);
+            var esitoNumero = Int32.TryParse(tbNumeroF.Text, out Int32 resultNumero);
 
             // Applica il filtro sulla lista
             List<User> utentiFiltrati = users
@@ -87,7 +87,7 @@ namespace WindowsFormsApp1
                     (!esitoDataPagamento || resultDataPagamento == u.Data_pagamento) &&
                     (!esitoNumero || resultNumero == u.Numero) &&
                     u.Tipo.Contains(tbTipoF.Text) &&
-                    u.Telefono.Contains(tbTelefono.Text) &&
+                    u.Telefono.Contains(tbTelefonoF.Text) &&
                     u.Cellulare_whatsapp.Contains(tbCellulareF.Text) &&
                     u.Mail.Contains(tbMailF.Text)
                 )
@@ -270,7 +270,7 @@ namespace WindowsFormsApp1
 
             if (!string.IsNullOrWhiteSpace(tbNumero.Text))
             {
-                newUser.Numero = Convert.ToInt16(tbNumero.Text);
+                newUser.Numero = Convert.ToInt32(tbNumero.Text);
             }
             else
             {

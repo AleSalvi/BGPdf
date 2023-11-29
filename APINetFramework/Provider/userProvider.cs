@@ -143,6 +143,7 @@ namespace API.Provider
                     com.Parameters.Add(new SqlParameter("@Data_pagamento", User.Data_pagamento));
                     com.Parameters.Add(new SqlParameter("@Numero", User.Numero));
                     com.Parameters.Add(new SqlParameter("@Tipo", User.Tipo));
+                    com.Parameters.Add(new SqlParameter("@Telefono", User.Telefono));
                     com.Parameters.Add(new SqlParameter("@Cellulare_whatsapp", User.Cellulare_whatsapp));
                     com.Parameters.Add(new SqlParameter("@Mail", User.Mail));
 
