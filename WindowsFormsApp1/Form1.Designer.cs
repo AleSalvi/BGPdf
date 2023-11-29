@@ -36,6 +36,7 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_Uid = new System.Windows.Forms.Label();
             this.pulisci_filtri_btn = new System.Windows.Forms.Button();
             this.tbMailF = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -104,7 +105,6 @@ namespace WindowsFormsApp1
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.editUser_btn = new System.Windows.Forms.Button();
             this.pdf1 = new System.Windows.Forms.Button();
-            this.lbl_Uid = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -226,6 +226,16 @@ namespace WindowsFormsApp1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(303, 620);
             this.panel1.TabIndex = 9;
+            // 
+            // lbl_Uid
+            // 
+            this.lbl_Uid.AutoSize = true;
+            this.lbl_Uid.Location = new System.Drawing.Point(67, 19);
+            this.lbl_Uid.Name = "lbl_Uid";
+            this.lbl_Uid.Size = new System.Drawing.Size(21, 13);
+            this.lbl_Uid.TabIndex = 76;
+            this.lbl_Uid.Text = "uid";
+            this.lbl_Uid.Visible = false;
             // 
             // pulisci_filtri_btn
             // 
@@ -769,16 +779,6 @@ namespace WindowsFormsApp1
             this.pdf1.TabIndex = 14;
             this.pdf1.Text = "Create Pdf";
             this.pdf1.UseVisualStyleBackColor = true;
-            // 
-            // lbl_Uid
-            // 
-            this.lbl_Uid.AutoSize = true;
-            this.lbl_Uid.Location = new System.Drawing.Point(67, 19);
-            this.lbl_Uid.Name = "lbl_Uid";
-            this.lbl_Uid.Size = new System.Drawing.Size(21, 13);
-            this.lbl_Uid.TabIndex = 76;
-            this.lbl_Uid.Text = "uid";
-            this.lbl_Uid.Visible = false;
             // 
             // Form1
             // 

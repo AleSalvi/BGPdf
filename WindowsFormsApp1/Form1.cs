@@ -217,12 +217,38 @@ namespace WindowsFormsApp1
         public async void editUser()
         {
             User newUser = new User();
-            newUser.Uid = new Guid(lbl_Uid.Text);
+
+            if (this.label10.Text == "Modifica utente")
+            {
+                newUser.Uid = new Guid(lbl_Uid.Text);
+            }
+            else
+            {
+                newUser.Uid = Guid.NewGuid();
+            }
+
             newUser.Nome = tbNome.Text;
             newUser.Cognome = tbCognome.Text;
             newUser.CodiceFiscale = tbCodiceFiscale.Text;
-            newUser.Data_nascita = Convert.ToDateTime(tbDataDiNascita.Text);
-            newUser.Data_rilascio_porto_armi = Convert.ToDateTime(tbDataRilascioPortoArmi.Text);
+
+            if (!string.IsNullOrWhiteSpace(tbDataDiNascita.Text))
+            {
+                newUser.Data_nascita = Convert.ToDateTime(tbDataDiNascita.Text);
+            }
+            else
+            {
+                newUser.Data_nascita = Convert.ToDateTime("01-01-1900 00:00:00");
+            }
+
+            if (!string.IsNullOrWhiteSpace(tbDataRilascioPortoArmi.Text))
+            {
+                newUser.Data_rilascio_porto_armi = Convert.ToDateTime(tbDataRilascioPortoArmi.Text);
+            }
+            else
+            {
+                newUser.Data_rilascio_porto_armi = Convert.ToDateTime("01-01-1900 00:00:00");
+            }
+
             newUser.Numero_porto_armi = tbNumeroPortoArmi.Text;
             newUser.Cap_nascita = tbCapNascita.Text;
             newUser.Comune_nascita = tbComuneNascita.Text;
@@ -232,8 +258,25 @@ namespace WindowsFormsApp1
             newUser.Comune_residenza = tbComuneResidenza.Text;
             newUser.Provincia_residenza = tbProvinciaResistenza.Text;
             newUser.Sezione = tbSezione.Text;
-            newUser.Data_pagamento = Convert.ToDateTime(tbDataPagamento.Text);
-            newUser.Numero = Convert.ToInt16(tbNumero.Text);
+
+            if (!string.IsNullOrWhiteSpace(tbDataPagamento.Text))
+            {
+                newUser.Data_pagamento = Convert.ToDateTime(tbDataPagamento.Text);
+            }
+            else
+            {
+                newUser.Data_pagamento = Convert.ToDateTime("01-01-1900 00:00:00");
+            }
+
+            if (!string.IsNullOrWhiteSpace(tbNumero.Text))
+            {
+                newUser.Numero = Convert.ToInt16(tbNumero.Text);
+            }
+            else
+            {
+                newUser.Numero = 0;
+            }
+
             newUser.Tipo = tbTipo.Text;
             newUser.Telefono = tbTelefono.Text;
             newUser.Cellulare_whatsapp = tbCellulare.Text;
@@ -251,7 +294,6 @@ namespace WindowsFormsApp1
 
             await ReloadGrid();
         }
-
         private void addUser_btn_Click(object sender, EventArgs e)
         {
 
@@ -263,6 +305,8 @@ namespace WindowsFormsApp1
             this.editUser_btn.Enabled = false;
             this.saveUser_btn.Visible = true;
             this.annullla_btn.Visible = true;
+            this.pulisci_filtri_btn.Visible = false;
+            this.applica_filtri_btn.Visible = false;
         }
 
         private void editUser_btn_Click(object sender, EventArgs e)
@@ -276,6 +320,8 @@ namespace WindowsFormsApp1
             this.editUser_btn.Enabled = false;
             this.saveUser_btn.Visible = true;
             this.annullla_btn.Visible = true;
+            this.pulisci_filtri_btn.Visible = false;
+            this.applica_filtri_btn.Visible = false;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 lbl_Uid.Text = row.Cells["uid"].Value.ToString();
@@ -340,6 +386,9 @@ namespace WindowsFormsApp1
             this.annullla_btn.Visible = false;
             this.editUser_btn.Enabled = true;
 
+            this.pulisci_filtri_btn.Visible = true;
+            this.applica_filtri_btn.Visible = true;
+
             annulla = false;
         }
 
@@ -380,6 +429,9 @@ namespace WindowsFormsApp1
             tbMailF.Text = "";
 
             await ReloadGrid();
+
+            this.addUser_btn.Enabled = true;
+            this.editUser_btn.Enabled = true;
 
         }
     }
