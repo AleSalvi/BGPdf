@@ -103,25 +103,29 @@ namespace WindowsFormsApp1
             this.editUser_btn = new System.Windows.Forms.Button();
             this.pdf1 = new System.Windows.Forms.Button();
             this.deleteUser_btn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.cbScaduti = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pdf2
             // 
-            this.pdf2.Location = new System.Drawing.Point(1125, 750);
-            this.pdf2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pdf2.Location = new System.Drawing.Point(1085, 752);
+            this.pdf2.Margin = new System.Windows.Forms.Padding(4);
             this.pdf2.Name = "pdf2";
             this.pdf2.Size = new System.Drawing.Size(207, 28);
             this.pdf2.TabIndex = 0;
-            this.pdf2.Text = "Create Pdf";
+            this.pdf2.Text = "Create Pdf Assicurazione";
             this.pdf2.UseVisualStyleBackColor = true;
-            this.pdf2.Click += new System.EventHandler(this.btnCreatePdf_Click);
+            this.pdf2.Click += new System.EventHandler(this.pdf2_Click);
             // 
             // tbNome
             // 
             this.tbNome.Location = new System.Drawing.Point(9, 63);
-            this.tbNome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNome.Margin = new System.Windows.Forms.Padding(4);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(371, 22);
             this.tbNome.TabIndex = 1;
@@ -129,7 +133,7 @@ namespace WindowsFormsApp1
             // tbCognome
             // 
             this.tbCognome.Location = new System.Drawing.Point(9, 111);
-            this.tbCognome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCognome.Margin = new System.Windows.Forms.Padding(4);
             this.tbCognome.Name = "tbCognome";
             this.tbCognome.Size = new System.Drawing.Size(371, 22);
             this.tbCognome.TabIndex = 3;
@@ -156,6 +160,7 @@ namespace WindowsFormsApp1
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbScaduti);
             this.panel1.Controls.Add(this.tbDataPagamentoF);
             this.panel1.Controls.Add(this.tbDataPagamento);
             this.panel1.Controls.Add(this.tbDataRilascioPortoArmiF);
@@ -223,7 +228,7 @@ namespace WindowsFormsApp1
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1348, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(404, 763);
             this.panel1.TabIndex = 9;
@@ -231,7 +236,7 @@ namespace WindowsFormsApp1
             // tbDataPagamentoF
             // 
             this.tbDataPagamentoF.Location = new System.Drawing.Point(9, 591);
-            this.tbDataPagamentoF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDataPagamentoF.Margin = new System.Windows.Forms.Padding(4);
             this.tbDataPagamentoF.Name = "tbDataPagamentoF";
             this.tbDataPagamentoF.Size = new System.Drawing.Size(176, 22);
             this.tbDataPagamentoF.TabIndex = 32;
@@ -240,7 +245,7 @@ namespace WindowsFormsApp1
             // 
             this.tbDataPagamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.tbDataPagamento.Location = new System.Drawing.Point(9, 591);
-            this.tbDataPagamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDataPagamento.Margin = new System.Windows.Forms.Padding(4);
             this.tbDataPagamento.Name = "tbDataPagamento";
             this.tbDataPagamento.Size = new System.Drawing.Size(176, 22);
             this.tbDataPagamento.TabIndex = 31;
@@ -249,7 +254,7 @@ namespace WindowsFormsApp1
             // tbDataRilascioPortoArmiF
             // 
             this.tbDataRilascioPortoArmiF.Location = new System.Drawing.Point(204, 207);
-            this.tbDataRilascioPortoArmiF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDataRilascioPortoArmiF.Margin = new System.Windows.Forms.Padding(4);
             this.tbDataRilascioPortoArmiF.Name = "tbDataRilascioPortoArmiF";
             this.tbDataRilascioPortoArmiF.Size = new System.Drawing.Size(176, 22);
             this.tbDataRilascioPortoArmiF.TabIndex = 10;
@@ -258,7 +263,7 @@ namespace WindowsFormsApp1
             // 
             this.tbDataRilascioPortoArmi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.tbDataRilascioPortoArmi.Location = new System.Drawing.Point(204, 207);
-            this.tbDataRilascioPortoArmi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDataRilascioPortoArmi.Margin = new System.Windows.Forms.Padding(4);
             this.tbDataRilascioPortoArmi.Name = "tbDataRilascioPortoArmi";
             this.tbDataRilascioPortoArmi.Size = new System.Drawing.Size(176, 22);
             this.tbDataRilascioPortoArmi.TabIndex = 9;
@@ -267,7 +272,7 @@ namespace WindowsFormsApp1
             // tbDataDiNascitaF
             // 
             this.tbDataDiNascitaF.Location = new System.Drawing.Point(9, 207);
-            this.tbDataDiNascitaF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDataDiNascitaF.Margin = new System.Windows.Forms.Padding(4);
             this.tbDataDiNascitaF.Name = "tbDataDiNascitaF";
             this.tbDataDiNascitaF.Size = new System.Drawing.Size(176, 22);
             this.tbDataDiNascitaF.TabIndex = 8;
@@ -276,7 +281,7 @@ namespace WindowsFormsApp1
             // 
             this.tbDataDiNascita.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.tbDataDiNascita.Location = new System.Drawing.Point(9, 207);
-            this.tbDataDiNascita.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDataDiNascita.Margin = new System.Windows.Forms.Padding(4);
             this.tbDataDiNascita.Name = "tbDataDiNascita";
             this.tbDataDiNascita.Size = new System.Drawing.Size(176, 22);
             this.tbDataDiNascita.TabIndex = 7;
@@ -296,7 +301,7 @@ namespace WindowsFormsApp1
             // pulisci_filtri_btn
             // 
             this.pulisci_filtri_btn.Location = new System.Drawing.Point(9, 721);
-            this.pulisci_filtri_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pulisci_filtri_btn.Margin = new System.Windows.Forms.Padding(4);
             this.pulisci_filtri_btn.Name = "pulisci_filtri_btn";
             this.pulisci_filtri_btn.Size = new System.Drawing.Size(175, 28);
             this.pulisci_filtri_btn.TabIndex = 75;
@@ -307,7 +312,7 @@ namespace WindowsFormsApp1
             // tbMailF
             // 
             this.tbMailF.Location = new System.Drawing.Point(8, 684);
-            this.tbMailF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMailF.Margin = new System.Windows.Forms.Padding(4);
             this.tbMailF.Name = "tbMailF";
             this.tbMailF.Size = new System.Drawing.Size(373, 22);
             this.tbMailF.TabIndex = 42;
@@ -325,7 +330,7 @@ namespace WindowsFormsApp1
             // tbMail
             // 
             this.tbMail.Location = new System.Drawing.Point(9, 684);
-            this.tbMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMail.Margin = new System.Windows.Forms.Padding(4);
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(369, 22);
             this.tbMail.TabIndex = 41;
@@ -333,7 +338,7 @@ namespace WindowsFormsApp1
             // tbCellulareF
             // 
             this.tbCellulareF.Location = new System.Drawing.Point(9, 639);
-            this.tbCellulareF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCellulareF.Margin = new System.Windows.Forms.Padding(4);
             this.tbCellulareF.Name = "tbCellulareF";
             this.tbCellulareF.Size = new System.Drawing.Size(175, 22);
             this.tbCellulareF.TabIndex = 40;
@@ -351,7 +356,7 @@ namespace WindowsFormsApp1
             // tbCellulare
             // 
             this.tbCellulare.Location = new System.Drawing.Point(9, 639);
-            this.tbCellulare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCellulare.Margin = new System.Windows.Forms.Padding(4);
             this.tbCellulare.Name = "tbCellulare";
             this.tbCellulare.Size = new System.Drawing.Size(175, 22);
             this.tbCellulare.TabIndex = 39;
@@ -359,7 +364,7 @@ namespace WindowsFormsApp1
             // applica_filtri_btn
             // 
             this.applica_filtri_btn.Location = new System.Drawing.Point(204, 721);
-            this.applica_filtri_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.applica_filtri_btn.Margin = new System.Windows.Forms.Padding(4);
             this.applica_filtri_btn.Name = "applica_filtri_btn";
             this.applica_filtri_btn.Size = new System.Drawing.Size(175, 28);
             this.applica_filtri_btn.TabIndex = 15;
@@ -370,7 +375,7 @@ namespace WindowsFormsApp1
             // tbTelefonoF
             // 
             this.tbTelefonoF.Location = new System.Drawing.Point(204, 639);
-            this.tbTelefonoF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTelefonoF.Margin = new System.Windows.Forms.Padding(4);
             this.tbTelefonoF.Name = "tbTelefonoF";
             this.tbTelefonoF.Size = new System.Drawing.Size(175, 22);
             this.tbTelefonoF.TabIndex = 38;
@@ -388,7 +393,7 @@ namespace WindowsFormsApp1
             // tbTelefono
             // 
             this.tbTelefono.Location = new System.Drawing.Point(204, 639);
-            this.tbTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.Size = new System.Drawing.Size(175, 22);
             this.tbTelefono.TabIndex = 37;
@@ -396,7 +401,7 @@ namespace WindowsFormsApp1
             // annullla_btn
             // 
             this.annullla_btn.Location = new System.Drawing.Point(8, 721);
-            this.annullla_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.annullla_btn.Margin = new System.Windows.Forms.Padding(4);
             this.annullla_btn.Name = "annullla_btn";
             this.annullla_btn.Size = new System.Drawing.Size(177, 28);
             this.annullla_btn.TabIndex = 65;
@@ -408,7 +413,7 @@ namespace WindowsFormsApp1
             // tbNomeF
             // 
             this.tbNomeF.Location = new System.Drawing.Point(9, 63);
-            this.tbNomeF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNomeF.Margin = new System.Windows.Forms.Padding(4);
             this.tbNomeF.Name = "tbNomeF";
             this.tbNomeF.Size = new System.Drawing.Size(371, 22);
             this.tbNomeF.TabIndex = 2;
@@ -416,7 +421,7 @@ namespace WindowsFormsApp1
             // tbProvinciaNascitaF
             // 
             this.tbProvinciaNascitaF.Location = new System.Drawing.Point(9, 351);
-            this.tbProvinciaNascitaF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbProvinciaNascitaF.Margin = new System.Windows.Forms.Padding(4);
             this.tbProvinciaNascitaF.Name = "tbProvinciaNascitaF";
             this.tbProvinciaNascitaF.Size = new System.Drawing.Size(371, 22);
             this.tbProvinciaNascitaF.TabIndex = 18;
@@ -424,7 +429,7 @@ namespace WindowsFormsApp1
             // tbCapNascitaF
             // 
             this.tbCapNascitaF.Location = new System.Drawing.Point(9, 303);
-            this.tbCapNascitaF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCapNascitaF.Margin = new System.Windows.Forms.Padding(4);
             this.tbCapNascitaF.Name = "tbCapNascitaF";
             this.tbCapNascitaF.Size = new System.Drawing.Size(176, 22);
             this.tbCapNascitaF.TabIndex = 14;
@@ -432,7 +437,7 @@ namespace WindowsFormsApp1
             // tbComuneNascitaF
             // 
             this.tbComuneNascitaF.Location = new System.Drawing.Point(203, 303);
-            this.tbComuneNascitaF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbComuneNascitaF.Margin = new System.Windows.Forms.Padding(4);
             this.tbComuneNascitaF.Name = "tbComuneNascitaF";
             this.tbComuneNascitaF.Size = new System.Drawing.Size(177, 22);
             this.tbComuneNascitaF.TabIndex = 16;
@@ -440,7 +445,7 @@ namespace WindowsFormsApp1
             // tbProvinciaResistenzaF
             // 
             this.tbProvinciaResistenzaF.Location = new System.Drawing.Point(9, 495);
-            this.tbProvinciaResistenzaF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbProvinciaResistenzaF.Margin = new System.Windows.Forms.Padding(4);
             this.tbProvinciaResistenzaF.Name = "tbProvinciaResistenzaF";
             this.tbProvinciaResistenzaF.Size = new System.Drawing.Size(371, 22);
             this.tbProvinciaResistenzaF.TabIndex = 26;
@@ -448,7 +453,7 @@ namespace WindowsFormsApp1
             // tbCapResistenzaF
             // 
             this.tbCapResistenzaF.Location = new System.Drawing.Point(9, 447);
-            this.tbCapResistenzaF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCapResistenzaF.Margin = new System.Windows.Forms.Padding(4);
             this.tbCapResistenzaF.Name = "tbCapResistenzaF";
             this.tbCapResistenzaF.Size = new System.Drawing.Size(176, 22);
             this.tbCapResistenzaF.TabIndex = 22;
@@ -456,7 +461,7 @@ namespace WindowsFormsApp1
             // tbCodiceFiscaleF
             // 
             this.tbCodiceFiscaleF.Location = new System.Drawing.Point(9, 159);
-            this.tbCodiceFiscaleF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCodiceFiscaleF.Margin = new System.Windows.Forms.Padding(4);
             this.tbCodiceFiscaleF.Name = "tbCodiceFiscaleF";
             this.tbCodiceFiscaleF.Size = new System.Drawing.Size(371, 22);
             this.tbCodiceFiscaleF.TabIndex = 6;
@@ -464,7 +469,7 @@ namespace WindowsFormsApp1
             // tbNumeroPortoArmiF
             // 
             this.tbNumeroPortoArmiF.Location = new System.Drawing.Point(9, 255);
-            this.tbNumeroPortoArmiF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNumeroPortoArmiF.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumeroPortoArmiF.Name = "tbNumeroPortoArmiF";
             this.tbNumeroPortoArmiF.Size = new System.Drawing.Size(371, 22);
             this.tbNumeroPortoArmiF.TabIndex = 12;
@@ -472,7 +477,7 @@ namespace WindowsFormsApp1
             // tbIndirizzoResistenzaF
             // 
             this.tbIndirizzoResistenzaF.Location = new System.Drawing.Point(9, 399);
-            this.tbIndirizzoResistenzaF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbIndirizzoResistenzaF.Margin = new System.Windows.Forms.Padding(4);
             this.tbIndirizzoResistenzaF.Name = "tbIndirizzoResistenzaF";
             this.tbIndirizzoResistenzaF.Size = new System.Drawing.Size(371, 22);
             this.tbIndirizzoResistenzaF.TabIndex = 20;
@@ -480,7 +485,7 @@ namespace WindowsFormsApp1
             // tbComuneResidenzaF
             // 
             this.tbComuneResidenzaF.Location = new System.Drawing.Point(203, 447);
-            this.tbComuneResidenzaF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbComuneResidenzaF.Margin = new System.Windows.Forms.Padding(4);
             this.tbComuneResidenzaF.Name = "tbComuneResidenzaF";
             this.tbComuneResidenzaF.Size = new System.Drawing.Size(177, 22);
             this.tbComuneResidenzaF.TabIndex = 24;
@@ -488,7 +493,7 @@ namespace WindowsFormsApp1
             // tbTipoF
             // 
             this.tbTipoF.Location = new System.Drawing.Point(206, 591);
-            this.tbTipoF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTipoF.Margin = new System.Windows.Forms.Padding(4);
             this.tbTipoF.Name = "tbTipoF";
             this.tbTipoF.Size = new System.Drawing.Size(175, 22);
             this.tbTipoF.TabIndex = 36;
@@ -496,7 +501,7 @@ namespace WindowsFormsApp1
             // tbNumeroF
             // 
             this.tbNumeroF.Location = new System.Drawing.Point(204, 543);
-            this.tbNumeroF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNumeroF.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumeroF.Name = "tbNumeroF";
             this.tbNumeroF.Size = new System.Drawing.Size(177, 22);
             this.tbNumeroF.TabIndex = 34;
@@ -504,7 +509,7 @@ namespace WindowsFormsApp1
             // tbSezioneF
             // 
             this.tbSezioneF.Location = new System.Drawing.Point(9, 543);
-            this.tbSezioneF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSezioneF.Margin = new System.Windows.Forms.Padding(4);
             this.tbSezioneF.Name = "tbSezioneF";
             this.tbSezioneF.Size = new System.Drawing.Size(176, 22);
             this.tbSezioneF.TabIndex = 28;
@@ -512,7 +517,7 @@ namespace WindowsFormsApp1
             // tbCognomeF
             // 
             this.tbCognomeF.Location = new System.Drawing.Point(9, 111);
-            this.tbCognomeF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCognomeF.Margin = new System.Windows.Forms.Padding(4);
             this.tbCognomeF.Name = "tbCognomeF";
             this.tbCognomeF.Size = new System.Drawing.Size(371, 22);
             this.tbCognomeF.TabIndex = 4;
@@ -530,7 +535,7 @@ namespace WindowsFormsApp1
             // saveUser_btn
             // 
             this.saveUser_btn.Location = new System.Drawing.Point(204, 721);
-            this.saveUser_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveUser_btn.Margin = new System.Windows.Forms.Padding(4);
             this.saveUser_btn.Name = "saveUser_btn";
             this.saveUser_btn.Size = new System.Drawing.Size(175, 28);
             this.saveUser_btn.TabIndex = 13;
@@ -542,7 +547,7 @@ namespace WindowsFormsApp1
             // tbProvinciaNascita
             // 
             this.tbProvinciaNascita.Location = new System.Drawing.Point(9, 351);
-            this.tbProvinciaNascita.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbProvinciaNascita.Margin = new System.Windows.Forms.Padding(4);
             this.tbProvinciaNascita.Name = "tbProvinciaNascita";
             this.tbProvinciaNascita.Size = new System.Drawing.Size(371, 22);
             this.tbProvinciaNascita.TabIndex = 17;
@@ -560,7 +565,7 @@ namespace WindowsFormsApp1
             // tbCapNascita
             // 
             this.tbCapNascita.Location = new System.Drawing.Point(9, 303);
-            this.tbCapNascita.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCapNascita.Margin = new System.Windows.Forms.Padding(4);
             this.tbCapNascita.Name = "tbCapNascita";
             this.tbCapNascita.Size = new System.Drawing.Size(176, 22);
             this.tbCapNascita.TabIndex = 13;
@@ -568,7 +573,7 @@ namespace WindowsFormsApp1
             // tbComuneNascita
             // 
             this.tbComuneNascita.Location = new System.Drawing.Point(203, 303);
-            this.tbComuneNascita.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbComuneNascita.Margin = new System.Windows.Forms.Padding(4);
             this.tbComuneNascita.Name = "tbComuneNascita";
             this.tbComuneNascita.Size = new System.Drawing.Size(177, 22);
             this.tbComuneNascita.TabIndex = 15;
@@ -606,7 +611,7 @@ namespace WindowsFormsApp1
             // tbProvinciaResistenza
             // 
             this.tbProvinciaResistenza.Location = new System.Drawing.Point(9, 495);
-            this.tbProvinciaResistenza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbProvinciaResistenza.Margin = new System.Windows.Forms.Padding(4);
             this.tbProvinciaResistenza.Name = "tbProvinciaResistenza";
             this.tbProvinciaResistenza.Size = new System.Drawing.Size(371, 22);
             this.tbProvinciaResistenza.TabIndex = 25;
@@ -624,7 +629,7 @@ namespace WindowsFormsApp1
             // tbCapResistenza
             // 
             this.tbCapResistenza.Location = new System.Drawing.Point(9, 447);
-            this.tbCapResistenza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCapResistenza.Margin = new System.Windows.Forms.Padding(4);
             this.tbCapResistenza.Name = "tbCapResistenza";
             this.tbCapResistenza.Size = new System.Drawing.Size(176, 22);
             this.tbCapResistenza.TabIndex = 21;
@@ -653,7 +658,7 @@ namespace WindowsFormsApp1
             // tbCodiceFiscale
             // 
             this.tbCodiceFiscale.Location = new System.Drawing.Point(9, 159);
-            this.tbCodiceFiscale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCodiceFiscale.Margin = new System.Windows.Forms.Padding(4);
             this.tbCodiceFiscale.Name = "tbCodiceFiscale";
             this.tbCodiceFiscale.Size = new System.Drawing.Size(371, 22);
             this.tbCodiceFiscale.TabIndex = 5;
@@ -671,7 +676,7 @@ namespace WindowsFormsApp1
             // tbNumeroPortoArmi
             // 
             this.tbNumeroPortoArmi.Location = new System.Drawing.Point(9, 255);
-            this.tbNumeroPortoArmi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNumeroPortoArmi.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumeroPortoArmi.Name = "tbNumeroPortoArmi";
             this.tbNumeroPortoArmi.Size = new System.Drawing.Size(371, 22);
             this.tbNumeroPortoArmi.TabIndex = 11;
@@ -689,7 +694,7 @@ namespace WindowsFormsApp1
             // tbIndirizzoResistenza
             // 
             this.tbIndirizzoResistenza.Location = new System.Drawing.Point(9, 399);
-            this.tbIndirizzoResistenza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbIndirizzoResistenza.Margin = new System.Windows.Forms.Padding(4);
             this.tbIndirizzoResistenza.Name = "tbIndirizzoResistenza";
             this.tbIndirizzoResistenza.Size = new System.Drawing.Size(371, 22);
             this.tbIndirizzoResistenza.TabIndex = 19;
@@ -697,7 +702,7 @@ namespace WindowsFormsApp1
             // tbComuneResidenza
             // 
             this.tbComuneResidenza.Location = new System.Drawing.Point(203, 447);
-            this.tbComuneResidenza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbComuneResidenza.Margin = new System.Windows.Forms.Padding(4);
             this.tbComuneResidenza.Name = "tbComuneResidenza";
             this.tbComuneResidenza.Size = new System.Drawing.Size(177, 22);
             this.tbComuneResidenza.TabIndex = 23;
@@ -725,7 +730,7 @@ namespace WindowsFormsApp1
             // tbTipo
             // 
             this.tbTipo.Location = new System.Drawing.Point(206, 591);
-            this.tbTipo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTipo.Margin = new System.Windows.Forms.Padding(4);
             this.tbTipo.Name = "tbTipo";
             this.tbTipo.Size = new System.Drawing.Size(175, 22);
             this.tbTipo.TabIndex = 35;
@@ -733,7 +738,7 @@ namespace WindowsFormsApp1
             // tbNumero
             // 
             this.tbNumero.Location = new System.Drawing.Point(204, 543);
-            this.tbNumero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNumero.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(177, 22);
             this.tbNumero.TabIndex = 33;
@@ -761,7 +766,7 @@ namespace WindowsFormsApp1
             // tbSezione
             // 
             this.tbSezione.Location = new System.Drawing.Point(9, 543);
-            this.tbSezione.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSezione.Margin = new System.Windows.Forms.Padding(4);
             this.tbSezione.Name = "tbSezione";
             this.tbSezione.Size = new System.Drawing.Size(176, 22);
             this.tbSezione.TabIndex = 27;
@@ -788,8 +793,8 @@ namespace WindowsFormsApp1
             // 
             // addUser_btn
             // 
-            this.addUser_btn.Location = new System.Drawing.Point(279, 750);
-            this.addUser_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addUser_btn.Location = new System.Drawing.Point(198, 752);
+            this.addUser_btn.Margin = new System.Windows.Forms.Padding(4);
             this.addUser_btn.Name = "addUser_btn";
             this.addUser_btn.Size = new System.Drawing.Size(207, 28);
             this.addUser_btn.TabIndex = 10;
@@ -801,7 +806,7 @@ namespace WindowsFormsApp1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 15);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -811,8 +816,8 @@ namespace WindowsFormsApp1
             // 
             // editUser_btn
             // 
-            this.editUser_btn.Location = new System.Drawing.Point(493, 750);
-            this.editUser_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editUser_btn.Location = new System.Drawing.Point(412, 752);
+            this.editUser_btn.Margin = new System.Windows.Forms.Padding(4);
             this.editUser_btn.Name = "editUser_btn";
             this.editUser_btn.Size = new System.Drawing.Size(193, 28);
             this.editUser_btn.TabIndex = 12;
@@ -822,19 +827,19 @@ namespace WindowsFormsApp1
             // 
             // pdf1
             // 
-            this.pdf1.Location = new System.Drawing.Point(911, 750);
-            this.pdf1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pdf1.Location = new System.Drawing.Point(830, 752);
+            this.pdf1.Margin = new System.Windows.Forms.Padding(4);
             this.pdf1.Name = "pdf1";
             this.pdf1.Size = new System.Drawing.Size(207, 28);
             this.pdf1.TabIndex = 14;
-            this.pdf1.Text = "Create Pdf";
+            this.pdf1.Text = "Create Pdf 173";
             this.pdf1.UseVisualStyleBackColor = true;
             this.pdf1.Click += new System.EventHandler(this.pdf1_Click);
             // 
             // deleteUser_btn
             // 
-            this.deleteUser_btn.Location = new System.Drawing.Point(696, 750);
-            this.deleteUser_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteUser_btn.Location = new System.Drawing.Point(615, 752);
+            this.deleteUser_btn.Margin = new System.Windows.Forms.Padding(4);
             this.deleteUser_btn.Name = "deleteUser_btn";
             this.deleteUser_btn.Size = new System.Drawing.Size(207, 28);
             this.deleteUser_btn.TabIndex = 15;
@@ -842,11 +847,57 @@ namespace WindowsFormsApp1
             this.deleteUser_btn.UseVisualStyleBackColor = true;
             this.deleteUser_btn.Click += new System.EventHandler(this.deleteUser_btn_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1045, 752);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 28);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "B";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1300, 752);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(32, 28);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "B";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(16, 752);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(174, 28);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "Esportazione Excel";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // cbScaduti
+            // 
+            this.cbScaduti.AutoSize = true;
+            this.cbScaduti.Location = new System.Drawing.Point(206, 234);
+            this.cbScaduti.Name = "cbScaduti";
+            this.cbScaduti.Size = new System.Drawing.Size(151, 20);
+            this.cbScaduti.TabIndex = 77;
+            this.cbScaduti.Text = "Mostra date scadute";
+            this.cbScaduti.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1764, 793);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.deleteUser_btn);
             this.Controls.Add(this.pdf1);
             this.Controls.Add(this.editUser_btn);
@@ -854,7 +905,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.addUser_btn);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pdf2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Associazione Cacciatori Lombardi";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -945,6 +996,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DateTimePicker tbDataDiNascita;
         private System.Windows.Forms.DateTimePicker tbDataPagamento;
         private System.Windows.Forms.DateTimePicker tbDataRilascioPortoArmi;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox cbScaduti;
     }
 }
 
