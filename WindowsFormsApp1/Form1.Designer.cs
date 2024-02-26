@@ -36,6 +36,7 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbScaduti = new System.Windows.Forms.CheckBox();
             this.tbDataPagamentoF = new System.Windows.Forms.TextBox();
             this.tbDataPagamento = new System.Windows.Forms.DateTimePicker();
             this.tbDataRilascioPortoArmiF = new System.Windows.Forms.TextBox();
@@ -106,7 +107,6 @@ namespace WindowsFormsApp1
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.cbScaduti = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -232,6 +232,16 @@ namespace WindowsFormsApp1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(404, 763);
             this.panel1.TabIndex = 9;
+            // 
+            // cbScaduti
+            // 
+            this.cbScaduti.AutoSize = true;
+            this.cbScaduti.Location = new System.Drawing.Point(206, 234);
+            this.cbScaduti.Name = "cbScaduti";
+            this.cbScaduti.Size = new System.Drawing.Size(151, 20);
+            this.cbScaduti.TabIndex = 77;
+            this.cbScaduti.Text = "Mostra date scadute";
+            this.cbScaduti.UseVisualStyleBackColor = true;
             // 
             // tbDataPagamentoF
             // 
@@ -879,16 +889,6 @@ namespace WindowsFormsApp1
             this.button3.Text = "Esportazione Excel";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // cbScaduti
-            // 
-            this.cbScaduti.AutoSize = true;
-            this.cbScaduti.Location = new System.Drawing.Point(206, 234);
-            this.cbScaduti.Name = "cbScaduti";
-            this.cbScaduti.Size = new System.Drawing.Size(151, 20);
-            this.cbScaduti.TabIndex = 77;
-            this.cbScaduti.Text = "Mostra date scadute";
-            this.cbScaduti.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
