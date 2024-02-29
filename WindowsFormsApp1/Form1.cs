@@ -23,6 +23,8 @@ namespace WindowsFormsApp1
         string pdfSourcePath1 = ConfigurationManager.AppSettings["PDF_SourcePath_1"];
         string pdfSourcePath2 = ConfigurationManager.AppSettings["PDF_SourcePath_2"];
 
+        double Y = 100;
+        double X = 100;
         bool annulla = false;
         string pdfResultPath1;
         string pdfResultPath2;
@@ -38,6 +40,8 @@ namespace WindowsFormsApp1
         {
             await LoginAPI();
             await ReloadGrid();
+            tbX.Text = X.ToString();
+            tbY.Text = Y.ToString();
         }
 
         public async Task LoginAPI()
@@ -217,8 +221,8 @@ namespace WindowsFormsApp1
                             //    }
                             //}
 
-                            double percX = 1.019;
-                            double percY = 1.02;
+                            double percX = X;
+                            double percY = Y;
                             if (colori)
                             {
                                 percX = 1;
@@ -246,43 +250,43 @@ namespace WindowsFormsApp1
                                 string dataPortoArmi = row.Cells["Data_rilascio_porto_armi"].Value?.ToString()?.Substring(0, Math.Min(10, row.Cells["Data_rilascio_porto_armi"].Value.ToString().Length));
 
 
-                                pdfManagment.WriteLineOnPdf(ref resultPage, sezione, 10, (20 + doppio) * percX, getY(540, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, numeroPortoArmi, 10, (20 + doppio) * percX, getY(512, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, dataPortoArmi, 10, (130 + doppio) * percX, getY(512, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, nome, 10, (20 + doppio) * percX, getY(485, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, comuneNascita, 10, (20 + doppio) * percX, getY(457, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, dataNascita, 10, (130 + doppio) * percX, getY(457, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, indirizzoResidenza, 10, (20 + doppio) * percX, getY(430, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, totResidenza, 10, (20 + doppio) * percX, getY(402, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, codiceFiscale, 10, (20 + doppio) * percX, getY(375, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["Telefono"].Value.ToString(), 10, (20 + doppio) * percX, getY(345, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, sezione, 9, (20 + doppio) * percX, getY(540, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, numeroPortoArmi, 9, (20 + doppio) * percX, getY(512, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, dataPortoArmi, 9, (130 + doppio) * percX, getY(512, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, nome, 9, (20 + doppio) * percX, getY(485, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, comuneNascita, 9, (20 + doppio) * percX, getY(457, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, dataNascita, 9, (130 + doppio) * percX, getY(457, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, indirizzoResidenza, 9, (20 + doppio) * percX, getY(430, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, totResidenza, 9, (20 + doppio) * percX, getY(402, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, codiceFiscale, 9, (20 + doppio) * percX, getY(375, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["Telefono"].Value.ToString(), 9, (20 + doppio) * percX, getY(345, percY), helvetica);
                                 pdfManagment.WriteLineOnPdf(ref resultPage, row.Cells["Mail"].Value.ToString(), 9, (20 + doppio) * percX, getY(319, percY), helvetica);
 
-                                pdfManagment.WriteLineOnPdf(ref resultPage, sezione, 10, 170 * percX, getY(179, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, numeroPortoArmi, 10, 60 * percX, getY(163, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, dataPortoArmi, 10, 210 * percX, getY(164, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, nome, 10, 20 * percX, getY(136, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, indirizzoResidenza, 10, 45 * percX, getY(101, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, capResidenza, 10, 45 * percX, getY(82, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, comuneResidenza, 10, 45 * percX, getY(64, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, sezione, 9, 170 * percX, getY(179, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, numeroPortoArmi, 9, 60 * percX, getY(163, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, dataPortoArmi, 9, 210 * percX, getY(164, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, nome, 9, 20 * percX, getY(136, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, indirizzoResidenza, 9, 45 * percX, getY(101, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, capResidenza, 9, 45 * percX, getY(82, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, comuneResidenza, 9, 45 * percX, getY(64, percY), helvetica);
 
-                                pdfManagment.WriteLineOnPdf(ref resultPage, nome, 10, 450 * percX, getY(445, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, comuneNascita, 10, 450 * percX, getY(426, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, dataNascita, 10, 580 * percX, getY(426, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, totResidenza, 10, 450 * percX, getY(407, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, indirizzoResidenza, 10, 450 * percX, getY(388, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, sezione, 10, 460 * percX, getY(350, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, nome, 9, 450 * percX, getY(445, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, comuneNascita, 9, 450 * percX, getY(426, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, dataNascita, 9, 580 * percX, getY(426, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, totResidenza, 9, 450 * percX, getY(407, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, indirizzoResidenza, 9, 450 * percX, getY(388, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, sezione, 9, 460 * percX, getY(350, percY), helvetica);
 
-                                pdfManagment.WriteLineOnPdf(ref resultPage, sezione, 10, 580 * percX, getY(178, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, numeroPortoArmi, 10, 485 * percX, getY(163, percY), helvetica);
-                                pdfManagment.WriteLineOnPdf(ref resultPage, dataPortoArmi, 10, 670 * percX, getY(163, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, sezione, 9, 580 * percX, getY(178, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, numeroPortoArmi, 9, 485 * percX, getY(163, percY), helvetica);
+                                pdfManagment.WriteLineOnPdf(ref resultPage, dataPortoArmi, 9, 670 * percX, getY(163, percY), helvetica);
 
                                 double xcelle = 539.5;
                                 int maxNomeCaratteri = 23;
                                 foreach (char carattere in nome.Take(maxNomeCaratteri))
                                 {
                                     string carattereMaiuscolo = carattere.ToString().ToUpper();
-                                    pdfManagment.WriteLineOnPdf(ref resultPage, carattereMaiuscolo, 10, xcelle * percX, getY(139, percY), helvetica);
+                                    pdfManagment.WriteLineOnPdf(ref resultPage, carattereMaiuscolo, 9, xcelle * percX, getY(139, percY), helvetica);
                                     xcelle += 12.29;
                                 }
 
@@ -291,7 +295,7 @@ namespace WindowsFormsApp1
                                 foreach (char carattere in indirizzoResidenza.Take(maxIndirizzoCaratteri))
                                 {
                                     string carattereMaiuscolo = carattere.ToString().ToUpper();
-                                    pdfManagment.WriteLineOnPdf(ref resultPage, carattereMaiuscolo, 10, xcelle * percX, getY(100, percY), helvetica);
+                                    pdfManagment.WriteLineOnPdf(ref resultPage, carattereMaiuscolo, 9, xcelle * percX, getY(100, percY), helvetica);
                                     xcelle += 12.3;
                                 }
 
@@ -300,7 +304,7 @@ namespace WindowsFormsApp1
                                 foreach (char carattere in capResidenza.Take(maxCapCaratteri))
                                 {
                                     string carattereMaiuscolo = carattere.ToString().ToUpper();
-                                    pdfManagment.WriteLineOnPdf(ref resultPage, carattereMaiuscolo, 10, xcelle * percX, getY(76, percY), helvetica);
+                                    pdfManagment.WriteLineOnPdf(ref resultPage, carattereMaiuscolo, 9, xcelle * percX, getY(76, percY), helvetica);
                                     xcelle += 12.35;
                                 }
 
@@ -309,7 +313,7 @@ namespace WindowsFormsApp1
                                 foreach (char carattere in comuneResidenza.Take(maxComuneCaratteri))
                                 {
                                     string carattereMaiuscolo = carattere.ToString().ToUpper();
-                                    pdfManagment.WriteLineOnPdf(ref resultPage, carattereMaiuscolo, 10, xcelle * percX, getY(76, percY), helvetica);
+                                    pdfManagment.WriteLineOnPdf(ref resultPage, carattereMaiuscolo, 9, xcelle * percX, getY(76, percY), helvetica);
                                     xcelle += 12.3;
                                 }
 
@@ -366,8 +370,8 @@ namespace WindowsFormsApp1
                         //        }
                         //    }
 
-                        double percX = 1;
-                        double percY = 1;
+                        double percX = X;
+                        double percY = Y;
                         if (colori)
                         {
                             percX = 1;
@@ -804,6 +808,24 @@ namespace WindowsFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             esportazioneExcel();
+        }
+
+        private void tbX_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                X = Convert.ToDouble(tbX.Text) / 100;
+            }
+            catch { }
+        }
+
+        private void tbY_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Y = Convert.ToDouble(tbY.Text) / 100;
+            }
+            catch { }
         }
     }
 }

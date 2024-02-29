@@ -107,6 +107,8 @@ namespace WindowsFormsApp1
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.tbX = new System.Windows.Forms.TextBox();
+            this.tbY = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -160,6 +162,8 @@ namespace WindowsFormsApp1
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tbY);
+            this.panel1.Controls.Add(this.tbX);
             this.panel1.Controls.Add(this.cbScaduti);
             this.panel1.Controls.Add(this.tbDataPagamentoF);
             this.panel1.Controls.Add(this.tbDataPagamento);
@@ -890,6 +894,24 @@ namespace WindowsFormsApp1
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // tbX
+            // 
+            this.tbX.Location = new System.Drawing.Point(183, 21);
+            this.tbX.Margin = new System.Windows.Forms.Padding(4);
+            this.tbX.Name = "tbX";
+            this.tbX.Size = new System.Drawing.Size(95, 22);
+            this.tbX.TabIndex = 78;
+            this.tbX.TextChanged += new System.EventHandler(this.tbX_TextChanged);
+            // 
+            // tbY
+            // 
+            this.tbY.Location = new System.Drawing.Point(286, 21);
+            this.tbY.Margin = new System.Windows.Forms.Padding(4);
+            this.tbY.Name = "tbY";
+            this.tbY.Size = new System.Drawing.Size(95, 22);
+            this.tbY.TabIndex = 79;
+            this.tbY.TextChanged += new System.EventHandler(this.tbY_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1000,6 +1022,8 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.CheckBox cbScaduti;
+        private System.Windows.Forms.TextBox tbY;
+        private System.Windows.Forms.TextBox tbX;
     }
 }
 
