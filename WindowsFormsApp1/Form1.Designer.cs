@@ -36,6 +36,8 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbY = new System.Windows.Forms.TextBox();
+            this.tbX = new System.Windows.Forms.TextBox();
             this.cbScaduti = new System.Windows.Forms.CheckBox();
             this.tbDataPagamentoF = new System.Windows.Forms.TextBox();
             this.tbDataPagamento = new System.Windows.Forms.DateTimePicker();
@@ -107,8 +109,10 @@ namespace WindowsFormsApp1
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.tbX = new System.Windows.Forms.TextBox();
-            this.tbY = new System.Windows.Forms.TextBox();
+            this.tbY173 = new System.Windows.Forms.TextBox();
+            this.tbX173 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -162,6 +166,10 @@ namespace WindowsFormsApp1
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.tbY173);
+            this.panel1.Controls.Add(this.tbX173);
             this.panel1.Controls.Add(this.tbY);
             this.panel1.Controls.Add(this.tbX);
             this.panel1.Controls.Add(this.cbScaduti);
@@ -236,6 +244,24 @@ namespace WindowsFormsApp1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(404, 763);
             this.panel1.TabIndex = 9;
+            // 
+            // tbY
+            // 
+            this.tbY.Location = new System.Drawing.Point(287, 4);
+            this.tbY.Margin = new System.Windows.Forms.Padding(4);
+            this.tbY.Name = "tbY";
+            this.tbY.Size = new System.Drawing.Size(95, 22);
+            this.tbY.TabIndex = 79;
+            this.tbY.TextChanged += new System.EventHandler(this.tbY_TextChanged);
+            // 
+            // tbX
+            // 
+            this.tbX.Location = new System.Drawing.Point(184, 4);
+            this.tbX.Margin = new System.Windows.Forms.Padding(4);
+            this.tbX.Name = "tbX";
+            this.tbX.Size = new System.Drawing.Size(95, 22);
+            this.tbX.TabIndex = 78;
+            this.tbX.TextChanged += new System.EventHandler(this.tbX_TextChanged);
             // 
             // cbScaduti
             // 
@@ -894,23 +920,43 @@ namespace WindowsFormsApp1
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // tbX
+            // tbY173
             // 
-            this.tbX.Location = new System.Drawing.Point(183, 21);
-            this.tbX.Margin = new System.Windows.Forms.Padding(4);
-            this.tbX.Name = "tbX";
-            this.tbX.Size = new System.Drawing.Size(95, 22);
-            this.tbX.TabIndex = 78;
-            this.tbX.TextChanged += new System.EventHandler(this.tbX_TextChanged);
+            this.tbY173.Location = new System.Drawing.Point(287, 34);
+            this.tbY173.Margin = new System.Windows.Forms.Padding(4);
+            this.tbY173.Name = "tbY173";
+            this.tbY173.Size = new System.Drawing.Size(95, 22);
+            this.tbY173.TabIndex = 81;
+            this.tbY173.TextChanged += new System.EventHandler(this.tbY173_TextChanged);
             // 
-            // tbY
+            // tbX173
             // 
-            this.tbY.Location = new System.Drawing.Point(286, 21);
-            this.tbY.Margin = new System.Windows.Forms.Padding(4);
-            this.tbY.Name = "tbY";
-            this.tbY.Size = new System.Drawing.Size(95, 22);
-            this.tbY.TabIndex = 79;
-            this.tbY.TextChanged += new System.EventHandler(this.tbY_TextChanged);
+            this.tbX173.Location = new System.Drawing.Point(184, 34);
+            this.tbX173.Margin = new System.Windows.Forms.Padding(4);
+            this.tbX173.Name = "tbX173";
+            this.tbX173.Size = new System.Drawing.Size(95, 22);
+            this.tbX173.TabIndex = 80;
+            this.tbX173.TextChanged += new System.EventHandler(this.tbX173_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(127, 7);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 16);
+            this.label8.TabIndex = 82;
+            this.label8.Text = "assXY:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(128, 37);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(48, 16);
+            this.label23.TabIndex = 83;
+            this.label23.Text = "173XY:";
             // 
             // Form1
             // 
@@ -1024,6 +1070,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.CheckBox cbScaduti;
         private System.Windows.Forms.TextBox tbY;
         private System.Windows.Forms.TextBox tbX;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbY173;
+        private System.Windows.Forms.TextBox tbX173;
     }
 }
 
