@@ -23,8 +23,8 @@ namespace WindowsFormsApp1
         string pdfSourcePath1 = ConfigurationManager.AppSettings["PDF_SourcePath_1"];
         string pdfSourcePath2 = ConfigurationManager.AppSettings["PDF_SourcePath_2"];
 
-        double Yass = 1006;
-        double Xass = 1000;
+        double Yass = 1008;
+        double Xass = 1003;
         double Y173 = 1010;
         double X173 = 992;
         bool annulla = false;
