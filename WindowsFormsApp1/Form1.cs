@@ -23,10 +23,10 @@ namespace WindowsFormsApp1
         string pdfSourcePath1 = ConfigurationManager.AppSettings["PDF_SourcePath_1"];
         string pdfSourcePath2 = ConfigurationManager.AppSettings["PDF_SourcePath_2"];
 
-        double Yass = 1008;
-        double Xass = 1003;
-        double Y173 = 1010;
-        double X173 = 992;
+        double Yass = 1002;
+        double Xass = 999;
+        double Y173 = 1000;
+        double X173 = 1003;
         bool annulla = false;
         string pdfResultPath1;
         string pdfResultPath2;
@@ -250,9 +250,16 @@ namespace WindowsFormsApp1
                                 string comuneResidenza = row.Cells["Comune_residenza"].Value.ToString();
                                 string provinciaResidenza = row.Cells["Provincia_residenza"].Value.ToString();
                                 string dataNascita = row.Cells["Data_nascita"].Value?.ToString()?.Substring(0, Math.Min(10, row.Cells["Data_nascita"].Value.ToString().Length));
+                                if (dataNascita == "30/12/1899")
+                                {
+                                    dataNascita = "";
+                                }
                                 string totResidenza = capResidenza + ' ' + comuneResidenza + ' ' + provinciaResidenza;
                                 string dataPortoArmi = row.Cells["Data_rilascio_porto_armi"].Value?.ToString()?.Substring(0, Math.Min(10, row.Cells["Data_rilascio_porto_armi"].Value.ToString().Length));
-
+                                if (dataPortoArmi == "30/12/1899")
+                                {
+                                    dataPortoArmi = "";
+                                }
 
                                 pdfManagment.WriteLineOnPdf(ref resultPage, sezione, 8, (20 + doppio) * percX, getY(540, percY), helvetica);
                                 pdfManagment.WriteLineOnPdf(ref resultPage, numeroPortoArmi, 8, (20 + doppio) * percX, getY(512, percY), helvetica);
@@ -409,9 +416,16 @@ namespace WindowsFormsApp1
                             string provinciaResidenza = row.Cells["Provincia_residenza"].Value.ToString();
                             string provinciaNascita = row.Cells["Provincia_nascita"].Value.ToString();
                             string dataNascita = row.Cells["Data_nascita"].Value?.ToString()?.Substring(0, Math.Min(10, row.Cells["Data_nascita"].Value.ToString().Length));
+                            if (dataNascita == "30/12/1899")
+                            {
+                                dataNascita = "";
+                            }
                             string totResidenza = capResidenza + ' ' + comuneResidenza + ' ' + provinciaResidenza;
                             string dataPortoArmi = row.Cells["Data_rilascio_porto_armi"].Value?.ToString()?.Substring(0, Math.Min(10, row.Cells["Data_rilascio_porto_armi"].Value.ToString().Length));
-
+                            if (dataPortoArmi == "30/12/1899")
+                            {
+                                dataPortoArmi = "";
+                            }
                             pdfManagment.WriteLineOnPdf(ref resultPage, nome, 8, 50 * percX, 480 - doppio * percY, helvetica);
                             pdfManagment.WriteLineOnPdf(ref resultPage, nome, 8, 280 * percX, 480 - doppio * percY, helvetica);
 
@@ -449,12 +463,15 @@ namespace WindowsFormsApp1
                             }
                             xcelle = 668;
                             maxCaratteri = 6;
-                            string nuovaStringa = $"{dataNascita[0]}{dataNascita[1]}{dataNascita[3]}{dataNascita[4]}{dataNascita[8]}{dataNascita[9]}";
-                            foreach (char carattere in nuovaStringa.Take(maxCaratteri))
+                            if (dataNascita != "")
                             {
-                                string carattereMaiuscolo = carattere.ToString().ToUpper();
-                                pdfManagment.WriteLineOnPdf(ref resultPage, carattereMaiuscolo, 8, (xcelle + doppiox) * percX, 432 - doppio * percY, helvetica);
-                                xcelle += 12.4;
+                                string nuovaStringa = $"{dataNascita[0]}{dataNascita[1]}{dataNascita[3]}{dataNascita[4]}{dataNascita[8]}{dataNascita[9]}";
+                                foreach (char carattere in nuovaStringa.Take(maxCaratteri))
+                                {
+                                    string carattereMaiuscolo = carattere.ToString().ToUpper();
+                                    pdfManagment.WriteLineOnPdf(ref resultPage, carattereMaiuscolo, 8, (xcelle + doppiox) * percX, 432 - doppio * percY, helvetica);
+                                    xcelle += 12.4;
+                                }
                             }
                             xcelle = 900;
                             maxCaratteri = 2;
